@@ -1,14 +1,13 @@
 <?php
 /**
  * @package dompdf
- * @link    http://dompdf.github.com/
+ * @link    http://www.dompdf.com/
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @author  Helmut Tischer <htischer@weihenstephan.org>
- * @author  Fabien MÃ©nager <fabien.menager@gmail.com>
+ * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @version $Id: dompdf_config.inc.php 468 2012-02-05 10:51:40Z fabien.menager $
  */
-
-if ( class_exists( 'DOMPDF' , false ) ) { return; }
 
 //error_reporting(E_STRICT | E_ALL | E_DEPRECATED);
 //ini_set("display_errors", 1);
@@ -62,8 +61,8 @@ def("DOMPDF_ADMIN_PASSWORD", "password");
 /**
  * The location of the DOMPDF font directory
  *
- * The location of the directory where DOMPDF will store fonts and font metrics
- * Note: This directory must exist and be writable by the webserver process.
+ * If DOMPDF_FONT_DIR identical to DOMPDF_FONT_CACHE or user executing DOMPDF from the CLI,
+ * this directory must be writable by the webserver process ().
  * *Please note the trailing slash.*
  *
  * Notes regarding fonts:
@@ -71,8 +70,8 @@ def("DOMPDF_ADMIN_PASSWORD", "password");
  *
  * Only the original "Base 14 fonts" are present on all pdf viewers. Additional fonts must
  * be embedded in the pdf file or the PDF may not display correctly. This can significantly
- * increase file size unless font subsetting is enabled. Before embedding a font please
- * review your rights under the font license.
+ * increase file size and could violate copyright provisions of a font. Font subsetting is
+ * not currently supported.
  *
  * Any font specification in the source HTML is translated to the closest font available
  * in the font directory.
@@ -81,17 +80,20 @@ def("DOMPDF_ADMIN_PASSWORD", "password");
  * Courier, Courier-Bold, Courier-BoldOblique, Courier-Oblique,
  * Helvetica, Helvetica-Bold, Helvetica-BoldOblique, Helvetica-Oblique,
  * Times-Roman, Times-Bold, Times-BoldItalic, Times-Italic,
- * Symbol, ZapfDingbats.
+ * Symbol,
+ * ZapfDingbats,
+ *
+ * *Please note the trailing slash.*
  */
 def("DOMPDF_FONT_DIR", DOMPDF_DIR . "/lib/fonts/");
 
 /**
  * The location of the DOMPDF font cache directory
  *
- * This directory contains the cached font metrics for the fonts used by DOMPDF.
- * This directory can be the same as DOMPDF_FONT_DIR
- * 
- * Note: This directory must exist and be writable by the webserver process.
+ * Note this directory must be writable by the webserver process
+ * This folder must already exist!
+ * It contains the .afm files, on demand parsed, converted to php syntax and cached
+ * This folder can be the same as DOMPDF_FONT_DIR
  */
 def("DOMPDF_FONT_CACHE", DOMPDF_FONT_DIR);
 
@@ -197,7 +199,7 @@ def("DOMPDF_DEFAULT_MEDIA_TYPE", "screen");
  *
  * @see CPDF_Adapter::PAPER_SIZES for valid sizes
  */
-def("DOMPDF_DEFAULT_PAPER_SIZE", "letter");
+def("DOMPDF_DEFAULT_PAPER_SIZE", "a4");
 
 /**
  * The default font family
@@ -254,7 +256,7 @@ def("DOMPDF_DPI", 96);
  *
  * @var bool
  */
-def("DOMPDF_ENABLE_PHP", false);
+def("DOMPDF_ENABLE_PHP", true);
 
 /**
  * Enable inline Javascript
@@ -302,14 +304,7 @@ def("DOMPDF_FONT_HEIGHT_RATIO", 1.1);
  * Allows people to disabled CSS float support
  * @var bool
  */
-def("DOMPDF_ENABLE_CSS_FLOAT", false);
-
-/**
- * Enable the built in DOMPDF autoloader
- *
- * @var bool
- */
-def("DOMPDF_ENABLE_AUTOLOAD", true);
+def("DOMPDF_ENABLE_CSS_FLOAT", true);
 
 /**
  * Prepend the DOMPDF autoload function the spl_autoload stack
@@ -321,18 +316,12 @@ def("DOMPDF_AUTOLOAD_PREPEND", false);
 /**
  * Use the more-than-experimental HTML5 Lib parser
  */
-def("DOMPDF_ENABLE_HTML5PARSER", false);
+def("DOMPDF_ENABLE_HTML5PARSER", true);
 require_once(DOMPDF_LIB_DIR . "/html5lib/Parser.php");
 
 // ### End of user-configurable options ###
 
-/**
- * Load autoloader
- */
-if (DOMPDF_ENABLE_AUTOLOAD) {
-  require_once(DOMPDF_INC_DIR . "/autoload.inc.php");
-  require_once(DOMPDF_LIB_DIR . "/php-font-lib/classes/Font.php");
-}
+require_once(DOMPDF_INC_DIR . "/autoload.inc.php");
 
 /**
  * Ensure that PHP is working with text internally using UTF8 character encoding.

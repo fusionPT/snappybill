@@ -1,20 +1,7 @@
 <?php 
 //define("DOMPDF_TEMP_DIR", "/tmp");
 //define("DOMPDF_CHROOT", DOMPDF_DIR);
-//define("DOMPDF_FONT_DIR", DOMPDF_DIR."/lib/fonts/");
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-//define("DOMPDF_FONT_CACHE", DOMPDF_DIR."/lib/fonts/");
-//define("DOMPDF_UNICODE_ENABLED", true);
-=======
-=======
->>>>>>> parent of d9b1aab... Changes
-=======
->>>>>>> parent of d9b1aab... Changes
-define("DOMPDF_FONT_CACHE", DOMPDF_DIR."/lib/fonts/");
-define("DOMPDF_UNICODE_ENABLED", true);
->>>>>>> parent of d9b1aab... Changes
+//define("DOMPDF_UNICODE_ENABLED", false);
 //define("DOMPDF_PDF_BACKEND", "PDFLib");
 //define("DOMPDF_DEFAULT_MEDIA_TYPE", "print");
 //define("DOMPDF_DEFAULT_PAPER_SIZE", "letter");
@@ -34,7 +21,7 @@ define("DOMPDF_UNICODE_ENABLED", true);
 //define("DOMPDF_FONT_HEIGHT_RATIO", 1.0);
 //define("DEBUG_LAYOUT_PADDINGBOX", false);
 //define("DOMPDF_LOG_OUTPUT_FILE", DOMPDF_FONT_DIR."log.htm");
-define("DOMPDF_ENABLE_HTML5PARSER", true);
+//define("DOMPDF_ENABLE_HTML5PARSER", true);
 //define("DOMPDF_ENABLE_FONTSUBSETTING", true);
 
 // DOMPDF authentication
