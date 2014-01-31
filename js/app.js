@@ -51,16 +51,15 @@ $(document).ready(function(){
 	
 	$("#invoice-table").on("input", function(e) {
 		
+		if(e.target.className !== "description") {
+			updateTotal();
+		}
 		
-			
 		$('div input').each(function(){
 		    $(this).keyup(function(){
 		        $(this).attr('value',$(this).val());
 		    });
 		});
-		if(e.target.className !== "description") {
-			updateTotal();
-		}
 					
 	});
 	
