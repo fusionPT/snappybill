@@ -1,0 +1,236 @@
+/* Estilo para facturame */
+/* General Rules */
+.clearfix {
+  clear: both; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  color: #404040;
+  background: #f6f6f6;
+  height: 100%;
+  font-size: 14px; }
+
+h1 {
+  color: #171a1c;
+  float: right;
+  width: 500px; }
+  h1 span {
+    color: #171a1c;
+    display: block; }
+
+h3 {
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #171a1c; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+/* TABLE */
+table {
+  position: relative;
+  width: 100%; }
+  table thead {
+    border-bottom: 1px solid #959595; }
+    table thead th {
+      text-align: right;
+      width: 13%;
+      font-weight: 600;
+      border-right: 1px solid #ccc;
+      padding-right: 20px;
+      padding-bottom: 18px; }
+      table thead th:last-child {
+        border-right: none; }
+      table thead th.description {
+        width: 60%;
+        text-align: left; }
+  table td {
+    text-align: right;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    padding-right: 20px;
+    vertical-align: middle; }
+    table td.add {
+      text-align: left; }
+    table td span {
+      display: inline-block;
+      padding-bottom: 12px; }
+  table input {
+    text-align: right;
+    float: right;
+    width: 98%;
+    padding-top: 0 !important;
+    width: 80%; }
+    table input.description {
+      text-align: left;
+      float: left;
+      width: 98%; }
+
+/* RULES */
+.bold {
+  font-weight: 600; }
+
+.iva, .irpf {
+  width: 40% !important; }
+
+.tax {
+  color: #ccc;
+  padding-right: 10px; }
+
+#container {
+  width: 1000px;
+  margin: 50px auto; }
+
+a.add-row {
+  color: #ccc;
+  font-weight: 600; }
+  a.add-row:hover {
+    color: #2c79ec;
+    text-decoration: none; }
+
+#page-container {
+  width: 800px;
+  background: white;
+  margin-bottom: 10px;
+  float: left;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4); }
+
+#main {
+  padding: 40px; }
+
+header {
+  overflow: hidden; }
+  header img {
+    float: left; }
+
+header fieldset {
+  float: right;
+  width: 300px; }
+  header fieldset input#inv {
+    font-size: 18px; }
+
+fieldset#invoice-num {
+  text-align: right; }
+  fieldset#invoice-num input {
+    text-align: right;
+    width: 200px;
+    padding-right: 0; }
+  fieldset#invoice-num input#inv {
+    font-size: 21px; }
+
+h2 {
+  float: left;
+  font-size: 32px;
+  font-weight: 400; }
+
+#adress {
+  overflow: hidden;
+  margin: 50px 0 100px; }
+
+fieldset input {
+  font-family: 'Open Sans', sans-serif; }
+fieldset#from {
+  width: 340px;
+  float: left;
+  margin-right: 40px; }
+fieldset#billto {
+  width: 340px;
+  float: left; }
+
+input[type="text"] {
+  display: inline-block;
+  font-size: 14px;
+  color: #666;
+  padding: 12px 0 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin: 0px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 90%; }
+
+input[type="text"]:hover {
+  border-bottom: 1px solid blue; }
+
+input[type="submit"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  color: #2c79ec;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 20px; }
+
+input[type="submit"]:hover {
+  text-decoration: underline;
+  cursor: pointer; }
+
+textarea {
+  padding: 20px;
+  width: 93%;
+  resize: vertical;
+  border: none;
+  background: #f8f8f8;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc; }
+
+#pay {
+  padding-bottom: 10px; }
+
+#details {
+  position: relative; }
+
+/* Add and Delete rows */
+.delete-row {
+  height: 12px;
+  width: 12px;
+  color: #414141;
+  background: url(../images/delete-icon.png) no-repeat 0 0px;
+  text-indent: 9999px;
+  display: inline-block;
+  overflow: hidden; }
+
+.delete-row:hover {
+  background: url(../images/delete-icon.png) no-repeat 0 -12px; }
+
+.insert {
+  position: absolute;
+  left: -26px;
+  margin-top: 3px; }
+
+/* SIDEBAR */
+.sidebar {
+  float: left;
+  margin: 0 0 0 20px;
+  width: 160px;
+  overflow: hidden;
+  padding: 20px 0 0 20px; }
+  .sidebar input[type="submit"] {
+    float: left;
+    display: block;
+    padding-left: 28px; }
+
+#descargar {
+  background: url(../images/sprite.png) no-repeat 0 -16px; }
+
+#guardar {
+  background: url(../images/sprite.png) no-repeat 0 3px; }
+
+footer {
+  padding: 40px 0 40px; }
+
+.total {
+  font-size: 24px;
+  font-weight: bold; }
