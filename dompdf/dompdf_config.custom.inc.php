@@ -3,9 +3,12 @@
 //define("DOMPDF_CHROOT", DOMPDF_DIR);
 //define("DOMPDF_FONT_DIR", DOMPDF_DIR."/lib/fonts/");
 <<<<<<< HEAD
+<<<<<<< HEAD
 //define("DOMPDF_FONT_CACHE", DOMPDF_DIR."/lib/fonts/");
 //define("DOMPDF_UNICODE_ENABLED", true);
 =======
+=======
+>>>>>>> parent of d9b1aab... Changes
 define("DOMPDF_FONT_CACHE", DOMPDF_DIR."/lib/fonts/");
 define("DOMPDF_UNICODE_ENABLED", true);
 >>>>>>> parent of d9b1aab... Changes
