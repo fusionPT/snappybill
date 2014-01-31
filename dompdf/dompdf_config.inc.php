@@ -197,7 +197,7 @@ def("DOMPDF_DEFAULT_MEDIA_TYPE", "screen");
  *
  * @see CPDF_Adapter::PAPER_SIZES for valid sizes
  */
-def("DOMPDF_DEFAULT_PAPER_SIZE", "a4");
+def("DOMPDF_DEFAULT_PAPER_SIZE", "letter");
 
 /**
  * The default font family
@@ -321,7 +321,7 @@ def("DOMPDF_AUTOLOAD_PREPEND", false);
 /**
  * Use the more-than-experimental HTML5 Lib parser
  */
-def("DOMPDF_ENABLE_HTML5PARSER", true);
+def("DOMPDF_ENABLE_HTML5PARSER", false);
 require_once(DOMPDF_LIB_DIR . "/html5lib/Parser.php");
 
 // ### End of user-configurable options ###
