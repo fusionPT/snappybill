@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -39,11 +39,11 @@
   <div id="main" role="main">
     <header>
 		
-		<h2>Factura</h2>
+		<input class="title" type="text" name="invoice-title" placeholder="INVOICE" value="INVOICE"/>
 		
 		<fieldset id="invoice-num">
 			<input type="text" name="invoice" placeholder="Numero de factura" id="inv"/><br />
-			<input type="text" name="date" placeholder="26-01-12"/><br />
+			<input type="text" name="date" placeholder="26-01-12" value="<?php echo date('d/m/Y');?>"/><br />
 		</fieldset>
     </header>
     
@@ -52,17 +52,17 @@
     	
     		<fieldset id="from">
     		<h3>Factura de:</h3>
-				<input type="text" name="name" placeholder="Escribe tu nombre"/><br />
-				<input type="text" name="email" placeholder="Escribe tu email"/><br />
-				<input type="text" name="tel" placeholder="Escribe tu teléfono"/><br />
+				<input type="text" name="name" placeholder="Nombre, dirección, NIF..."/><br />
+				<input type="text" name="email" placeholder=""/><br />
+				<input type="text" name="tel" placeholder=""/><br />
 				
 			</fieldset>
 		
 			<fieldset id="billto">
 			<h3>Facturar a:</h3>
-				<input type="text" name="cname" placeholder="Escribe tu nombre"/><br />
-				<input type="text" name="cemail" placeholder="Escribe tu e-mail"/><br />
-				<input type="text" name="ctel" placeholder="Escribe tu telefono"/><br />
+				<input type="text" name="cname" placeholder="Nombre, dirección, NIF..."/><br />
+				<input type="text" name="cemail" placeholder=""/><br />
+				<input type="text" name="ctel" placeholder=""/><br />
 				
 			</fieldset>
 		
@@ -88,7 +88,7 @@
    							
    							<td class="article">
    							
-   								<input class="description" type="text" name="description-value" size="40" value="a"/>
+   								<input class="description" type="text" name="description-value" size="40" placeholder="ej. Página web" value=""/>
 	   							<input class="hidden-description" type="hidden" value=""/>
    							</td>
    							<td><input class="cantidad" type="text" name="cost" placeholder="Cant." size="2" value="0"/></td>
@@ -104,7 +104,7 @@
    					<tfoot>
    						
    						<tr>
-   							<td class="add"><a href="#" class="add-row">+ Add row</a></td>
+   							<td class="add"><a href="#" class="add-row">+ Añadir linea</a></td>
    							<td colspan="2" class="bold">Subtotal</td>
    							<td class="subtotal">0</td>
    							<input class="subtotal-hidden" type="hidden" name="subtotal" value="0">
@@ -119,7 +119,7 @@
    						<tr>
    						  <td class="noborder">&nbsp;</td>
    						  <td class="tax"></td>
-   						  <td><span class="tax">IRPF</span><input class="irpf" type="text" name="tax2" placeholder="IRPF" value="21" size="2"/></td>
+   						  <td><span class="tax">IRPF</span><input class="irpf" type="text" name="tax2" placeholder="IRPF" value="-21" size="2"/></td>
    							<td class="totalirpf">0</td>
    							<input class="totalirpf-hidden" type="hidden" name="totalirpf" value="0">
    						</tr>
@@ -163,8 +163,8 @@
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-  <script src="js/jquery-1.10.2.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/app-ck.js"></script>
   
 
   

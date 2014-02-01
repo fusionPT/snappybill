@@ -38,7 +38,7 @@ function renderPDF($content_var){
 			$dompdf->load_html(utf8_decode($content));
 			$dompdf->render();
 			$dompdf->stream($title . '.pdf');
-		
+			
 		}
 	}
 }

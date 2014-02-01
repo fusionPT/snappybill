@@ -5,7 +5,6 @@
 	/* Company details */
 
 	$factura = $_POST['invoice'];
-	$invoice_title = $_POST['invoice-title'];
 	$fecha = $_POST['date'];
 
 	$imagen = $_POST['image'];
@@ -37,14 +36,13 @@
 	$notas = $_POST['notas'];
 	
 	$htmls = $_POST['html'];
-	$final_html = str_replace('\"', '"', $htmls);
 	/* Call functions.php */
 	
 	require("functions.php");
 	
 	/* HTML Template */
 	
-	//echo "row html: ".str_replace('\"', '"', $htmls);
+	
 	
 	renderPDF('
 		
@@ -98,7 +96,7 @@ table {
     table thead th {
       text-align: right;
       width: 13%;
-      font-family: "Open Sans", sans-serif;
+      font-family: "Open Sans_semi", sans-serif;
       
       padding-right: 20px;
       padding-bottom: 18px; }
@@ -113,18 +111,14 @@ table {
   table td {
     text-align: right;
     padding-right: 20px;
-    vertical-align: middle; 
-    line-height: 24px;
-    }
+    vertical-align: middle; }
     
     table td.add {
       text-align: left; }
       
     table td span {
       display: inline-block;
-      vertical-align: middle;
-      }
-      
+      padding-bottom: 12px; }
   table input {
   	display:inline-block;
     text-align: right;
@@ -136,8 +130,7 @@ table {
     table input.description {
       display:inline-block;
       text-align: left;
-      vertical-align: middle;
-      line-height: 28px;
+     
       width: 98%; }
 
 /* RULES */
@@ -224,7 +217,7 @@ input[type="text"] {
   display: block;
   font-size: 14px;
   color: #666;
- 
+  
   appearance: none;
   -webkit-appearance: none;
   border: none;
@@ -248,13 +241,7 @@ textarea {
  }
 
 #pay {
-  padding-bottom: 10px; 
-  
-}
-
-#pay p {
-	color: #777;
-}
+  padding-bottom: 10px; }
 
 #details {
   position: relative; }
@@ -295,16 +282,13 @@ textarea {
 #header .inv-number span {
 	color: #ccc;
 	display: inline;
-	
-	font-family: "Open Sans", sans-serif;
+	line-height: 14px;
+	font-family: "Open Sans_semi", sans-serif;
 }
 .row td {
 	border-bottom: 1px solid #ccc;
 }
 
-.adress-title {
-	color: #777;
-}
 </style>
 		</head>
 		
@@ -314,7 +298,7 @@ textarea {
 		
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td class="inv-title" width="50%">'.$invoice_title.'</td>
+				<td class="inv-title" width="50%">Factura</td>
 				<td class="inv-number"><span>Numero: </span>'.$factura.'<br />
 				<span>Fecha: </span>'.$fecha.'
 				</td>
@@ -327,8 +311,8 @@ textarea {
     	
     		<table id="adress-details" width="100%" border="0" cellspacing="0" cellpadding="0">
 			  <tr>
-			    <td class="adress-title" width="50%">Factura de:</td>
-			    <td class="adress-title" width="50%">Factura para:</td>
+			    <td width="50%">Factura de:</td>
+			    <td width="50%">Factura para:</td>
 			  </tr>
 			  <tr>
 			    <td>'.$nombre.'</td>
@@ -361,7 +345,7 @@ textarea {
    						</tr>
    					</thead>
    					
-   					<tbody><a class="insert">'.$final_html.'</a></tbody>
+   					<tbody><a class="insert">'.$htmls.'</a></tbody>
    					
    					<tfoot>
    						
@@ -405,4 +389,3 @@ textarea {
 	
 
 ?>
-
