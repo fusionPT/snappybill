@@ -23,7 +23,7 @@ function renderPDF($content_var){
 	if(isset($_POST['submit']))
 	{
 		$title = $_POST['invoice'];
-		$content = $content_var;
+		$content = mb_convert_encoding($content_var, 'HTML-ENTITIES','UTF-8');
 		if(empty($content))
 		{
 			$error = "No fue posible renderizar el PDF!";

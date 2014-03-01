@@ -44,268 +44,20 @@
 	
 	/* HTML Template */
 	
-	//echo "row html: ".str_replace('\"', '"', $htmls);
 	
 	renderPDF('
+		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 		
-		<html>
+		<html lang=es>
 			
 		<head>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		
-		<style type="text/css">
-
-
-body {
-  font-family: "Opensans", serif;
-  font-weight: normal;
-  color: #404040;
-  height: 100%;
-  font-size: 14px; 
-  }
-
-h1 {
-  color: #171a1c;
-  
-  width: 500px; }
-  h1 span {
-    color: #171a1c;
-    display: block; }
-
-h3 {
-  font-weight: normal;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #171a1c; }
-
-a {
-	display:none;
-  text-decoration: none; }
-  a:hover {
-    text-decoration: underline; }
-
-/* TABLE */
-
-table {
-  position: relative;
-  border-collapse: collapse;
-  width: 100%; }
-  
-  table thead {
-    border-bottom: 1px solid #959595; }
-    
-    table thead th {
-      text-align: right;
-      width: 13%;
-      font-family: "Open Sans", sans-serif;
-      
-      padding-right: 20px;
-      padding-bottom: 18px; }
-      
-      table thead th:last-child {
-        border-right: none; }
-        
-      table thead th.description {
-        width: 60%;
-        text-align: left; }
-        
-  table td {
-    text-align: right;
-    padding-right: 20px;
-    vertical-align: middle; 
-    line-height: 24px;
-    }
-    
-    table td.add {
-      text-align: left; }
-      
-    table td span {
-      display: inline-block;
-      vertical-align: middle;
-      }
-      
-  table input {
-  	display:inline-block;
-    text-align: right;
-    
-    width: 98%;
-    padding-top: 0 !important;
-    width: 80%; }
-    
-    table input.description {
-      display:inline-block;
-      text-align: left;
-      vertical-align: middle;
-      line-height: 28px;
-      width: 98%; }
-
-/* RULES */
-.bold {
-  font-weight: 600; }
-
-.iva, .irpf {
-  width: 40% !important; }
-
-.tax {
-  color: #ccc;
-  padding-right: 10px; 
-  
-  }
-
-#container {
-  width: 1000px;
-  margin: 50px auto; }
+		<link rel="stylesheet" href="css/style-pdf.css">
 
 
 
-#page-container {
-  width: 800px;
-  margin-bottom: 10px;}
- 
-
-
-#main {
-  padding: 40px; }
-
-header {
-  overflow: hidden; }
-  header img {
-    }
-
-header fieldset {
- 
-  width: 300px; }
-  header fieldset input#inv {
-    font-size: 18px; }
-
-fieldset#invoice-num {
-  text-align: right; 
- 
-  }
-  fieldset#invoice-num input {
-    text-align: right;
-    width: 200px;
-    padding-right: 0; 
-    
-    }
-  fieldset#invoice-num input#inv {
-    font-size: 21px; }
-
-h2 {
-  
-  text-align: left;
-  font-size: 32px;
-  font-weight: 400; }
-
-#adress {
-  overflow: hidden;
-  margin: 25px 0 100px;
-  
-   }
-
-fieldset input {
-  font-family: "Open Sans", sans-serif; }
-  
-fieldset#from {
-  width: 340px;
- 
-  text-align: left !important;
-  margin-right: 40px; 
-  
-  }
-fieldset#billto {
-  width: 340px;
-  
-  text-align: left !important;
- }
-
-input[type="text"] {
-  display: block;
-  font-size: 14px;
-  color: #666;
- 
-  appearance: none;
-  -webkit-appearance: none;
-  border: none;
- 
-  margin: 0px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  width: 90% !important; }
-
-
-
-textarea {
-  padding: 20px;
-  width: 93%;
-  resize: vertical;
-  border: none;
-  
-  font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
- }
-
-#pay {
-  padding-bottom: 10px; 
-  
-}
-
-#pay p {
-	color: #777;
-}
-
-#details {
-  position: relative; }
-
-
-.insert {
-	display: none;
-   }
-  
-.delete-row {
-	display: none;
-	text-indent: -9999px;
-}
-
-.total {
-  font-size: 24px;
-  font-weight: bold; }
-
-#header {
-	padding-bottom: 20px;
-	
-}
-#header td, #adress-details td {
-	
-	text-align: left;
-	vertical-align:text-top;
-	
-}
-#header .inv-title{
-	font-size: 32px;
-	vertical-align:text-top;
-}
-
-#header .inv-number {
-	text-align: right;
-	
-}
-#header .inv-number span {
-	color: #ccc;
-	display: inline;
-	
-	font-family: "Open Sans", sans-serif;
-}
-.row td {
-	border-bottom: 1px solid #ccc;
-}
-
-.adress-title {
-	color: #777;
-}
-</style>
 		</head>
 		
 		<div id="main">
@@ -353,7 +105,7 @@ textarea {
    					<thead>
    						<tr>
    							
-   							<th class="description">Descripción</th>
+   							<th class="description">Descripci&oacute;n</th>
    							<th>Cant.</th>
    							<th>Coste</th>
    							<th>Precio</th>

@@ -7,9 +7,9 @@
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
-  <meta name="description" content="facturame">
-  <meta name="author" content="">
+  <title>Factura Rapida</title>
+  <meta name="description" content="facturas gratis, finanzas on-line, factura, pdf">
+  <meta name="author" content="Factura Rapida. Facturas online gratis">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,13 +33,17 @@
 <body>
 
   <div id="container">
+  
+  <h1>Factura<span>rapida</span>.net</h1>
+  <h2>Factura a PDF. Sin complicaciones. Gratis.</h2>
+  
   <div id="page-container">
   
   <form id="invoice" method="POST" action="invoice_html.php"><!-- Invoice form -->
   <div id="main" role="main">
     <header>
 		
-		<input class="title" type="text" name="invoice-title" placeholder="INVOICE" value="INVOICE"/>
+		<input class="title" type="text" name="invoice-title" placeholder="Factura" value="Factura"/>
 		
 		<fieldset id="invoice-num">
 			<input type="text" name="invoice" placeholder="Numero de factura" id="inv"/><br />
@@ -52,9 +56,9 @@
     	
     		<fieldset id="from">
     		<h3>Factura de:</h3>
-				<input type="text" name="name" placeholder="Nombre, dirección, NIF..."/><br />
-				<input type="text" name="email" placeholder=""/><br />
-				<input type="text" name="tel" placeholder=""/><br />
+				<input type="text" id="name" name="name" placeholder="Nombre, dirección, NIF..."/><br />
+				<input type="text" id="email" name="email" placeholder=""/><br />
+				<input type="text" id="tel" name="tel" placeholder=""/><br />
 				
 			</fieldset>
 		
@@ -75,7 +79,7 @@
    					<thead>
    						<tr>
    							
-   							<th class="description">Descripción</th>
+   							<th class="description">Descripci&oacute;n</th>
    							<th>Cant.</th>
    							<th>Coste</th>
    							<th>Precio</th>
@@ -147,13 +151,17 @@
     </div> <!--! end of #page-container -->
     <div class="sidebar">
     		<input type="submit" name="submit" id="descargar" value="Descargar"/>
-    		
+    		<input type="button" name="guardar" id="guardar" value="Guardar"/>
     	</div><!-- End of sidebar -->
 
    		</form>
    		<div class="clearfix"></div>
    <footer>
-	<p>&#169; brunofelicio.com</p>		
+	<p class="left">info@facturarapida.net</p>
+		<!--
+	<a href="https://twitter.com/share" class="twitter-share-button right" data-via="brunofelici" data-lang="es">Twittear</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>-->
+	
   </footer>
   
   </div> <!--! end of #container -->
@@ -164,7 +172,7 @@
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="js/app-ck.js"></script>
+  <script src="js/app.js"></script>
   
 
   
@@ -179,11 +187,15 @@
 
   <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
   <script>
-    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
-    s.parentNode.insertBefore(g,s)}(document,"script"));
-  </script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41351971-3', 'facturarapida.net');
+  ga('send', 'pageview');
+
+</script>
 
 </body>
 </html>
