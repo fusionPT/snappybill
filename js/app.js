@@ -194,13 +194,14 @@ $(document).ready(function(){
 	    
 	    description: $('input.description').eq(key).val(),
 	    cantidad: $('.cantidad').eq(key).val(),
-	    coste: $('.cost').eq(key).val(),
-	    precio: $('.precio').eq(key).val()
+	    coste: $('.coste').eq(key).val(),
+	    precio: $('.precio').eq(key).text()
 	    };
-	   console.log(element);
 	  });
 	   
-	   console.log(items);
+	   for (var item in items) {
+		   console.log(items[item]);
+	   }
 	  
 	  
    } 
