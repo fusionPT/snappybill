@@ -9,7 +9,7 @@ $(document).ready(function(){
 	
 	//Creates array
 	
-	var items = new Array();
+	var items = {};
 	
 	//Loads saved invoice data
 	loadInvoice();
@@ -190,6 +190,7 @@ $(document).ready(function(){
     //Saves rows to an Array
     function addToArray() {
 	     $('.row').each(function(key, element) {
+	     
 	    items[key] = { 
 	    
 	    description: $('input.description').eq(key).val(),
@@ -197,13 +198,16 @@ $(document).ready(function(){
 	    coste: $('.coste').eq(key).val(),
 	    precio: $('.precio').eq(key).text()
 	    };
+	    console.log("How many rows: " + key)
 	  });
 	   
 	   for (var item in items) {
-		   console.log(items[item]);
-	   }
-	  
-	  
+		   //console.log(items[item]);
+	   
+	  localStorage.setItem('items', JSON.stringify(items[item]));
+	  console.log(JSON.parse(localStorage.getItem('items')));
+	  }
    } 
+   
    
 });
