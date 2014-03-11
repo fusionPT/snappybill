@@ -198,9 +198,9 @@ $(document).ready(function(){
 	    coste: $('.coste').eq(key).val(),
 	    precio: $('.precio').eq(key).text()
 	    };
-	    console.log("How many rows: " + key)
-	  });
 	   
+	  });
+	    console.log("How many rows: " + key)
 	   for (var item in items) {
 		   //console.log(items[item]);
 	   
