@@ -1,5 +1,9 @@
 <?php 
+	
+	
+	
 	/* Company details */
+
 	$factura = $_POST['invoice'];
 	$invoice_title = $_POST['invoice-title'];
 	$fecha = $_POST['date'];
@@ -18,11 +22,11 @@
 	$cdir = $_POST['cdir'];
 	
 	/* Invoice data */
-	/*This is processed using $_POST['html'] */
-	//$description = $_POST['description-value'];
-	//$coste = $_POST['cost'];
-	//$cantidad = $_POST['qty'];
-	//$precio = $_POST['price'];
+	
+	$description = $_POST['description-value'];
+	$coste = $_POST['cost'];
+	$cantidad = $_POST['qty'];
+	$precio = $_POST['price'];
 	
 	
 	$subtotal = $_POST['subtotal'];
@@ -39,17 +43,8 @@
 	require("functions.php");
 	
 	/* HTML Template */
-	$taxes = '';
-	foreach($_POST['tax_names'] as $key => $taxname) {
 	
-	$taxes .=  '<tr>
-   						  <td class="noborder">&nbsp;</td>
-   						  <td class="tax">'.$taxname.'</td>
-   						  <td><span class="tax"></span><input class="iva" type="text" name="tax1" placeholder="IVA" value="'.$_POST['tax_values'][$key].'" size="2"/></td>
-   							<td>'.$_POST['tax_total'][$key].'</td>
-   						</tr>';
 	
-	}
 	renderPDF('
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 		
@@ -127,7 +122,18 @@
    							<td colspan="2" class="bold">Subtotal</td>
    							<td class="subtotal">'.$subtotal.'</td>
    						</tr>
-   						'.$taxes.'
+   						<tr>
+   						  <td class="noborder">&nbsp;</td>
+   						  <td class="tax">IVA</td>
+   						  <td><span class="tax"></span><input class="iva" type="text" name="tax1" placeholder="IVA" value="21" size="2"/></td>
+   							<td>'.$impuesto1.'</td>
+   						</tr>
+   						<tr>
+   						  <td class="noborder">&nbsp;</td>
+   						  <td class="tax">IRPF</td>
+   						  <td><span class="tax"></span><input class="irpf" type="text" name="tax2" placeholder="IRPF" value="-21" size="2"/></td>
+   							<td>'.$impuesto2.'</td>
+   						</tr>
    						<tr>
    						  <td class="noborder">&nbsp;</td>
    						  <td colspan="2" class="noborder"><strong>TOTAL</strong></td>
