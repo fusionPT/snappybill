@@ -1,136 +1,230 @@
 $(document).ready(function(){
-
+	var dataStorage = {};
 	//Variables
+	var changes_made = false;
 	var quantity = 0,
 		cost = 0,
 		price = 0,
 		totaliva = 0,
 		totalirpf = 0;
-	
 	//Creates array
-	
 	var items = {};
-	
 	//Loads saved invoice data
-	loadInvoice();
-	
+	//loadInvoice();
 	//Cuando clica en descargar
 	$( "#descargar" ).click(function() {
-
-		row_html = $("tbody").html();
+		row_html = $("#invoice-table tbody").html();
 		$(".html-hidden").val(row_html);
         return true; // return false to cancel form action
         
 	});
-	
-		$("#guardar").click(function(e) {
-			
-			saveInvoice();
-			
-			return false;
-        
+	$("#guardar").click(function(e) {
+		saveInvoice();
+		return false;
 	});
+	
+	$("#create_new").click(function(e) {
+		if (!checkChanges() || confirm('There are unsaved changes, do you want to proceed?')) {
+			resetForm();
+			setInvoiceNum(getLastInvoiceNum()+1);
+		} 
+		return false;
+	});
+	
+	
+	function checkChanges() {
+		if (changes_made) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	function setDefaultTaxes() {
+		$("#invoice-table tr.added_tax").remove();
+		tax = {
+				name: 'IVA',
+				value: '21'
+		}
+		addTax(tax);
+		tax = {
+				name: 'IRPF',
+				value: '-21'
+		}
+		addTax(tax);
+	}
+	
+	function resetForm() {
+		 numRows = 1;
+		 $('#invoice').find("input[type=text], textarea").val("");
+		 $('#invoice-title').val('Factura');
+		 $('#invoice-date').val($('#invoice-date').attr('placeholder'));
+		 setDefaultTaxes();
+		 $('#invoice-table .cantidad').val(0);
+		 $('#invoice-table .coste').val(0);
+		 $("#invoice-table tr.row:not(:first)").remove();
+		 updateTotal();
+		 
+	}
+	function getLastInvoiceNum() {
+		var inv_num = 0;
+		var keys = Object.keys(dataStorage.invoices);
+		//console.log(keys);
+	//	return 0;
+		for (i in keys) {
+			console.log(Math.round(keys[i].replace('invoice','')));
+			if (Math.round(keys[i].replace('invoice','')) >= inv_num) {
+				inv_num = Math.round(keys[i].replace('invoice',''));
+			}
+		}
+		return inv_num;
+	}
+	function setInvoiceNum(num) {
+		 $( "#inv" ).val(num);
+	}
+	
+	$(document).on('click','#invoices ul li .inv_title',function(e) {
+		loadInvoice($(this).parent().attr('data-invoice-num'));
+	});
+	$(document).on('click','#invoices ul li .inv_delete',function(e) {
+		deleteInvoice($(this).parent().attr('data-invoice-num'));
+	});
+	
 	
 	//HTML row html template
 	var numRows = 1;
-	var template = "<tr class='row'>"
+	
+	
+	function addRow(item) {
+		numRows++;
+		if (typeof(item) === 'undefined') {
+			item = {
+				coste: '0',
+				cantidad: '0',
+				description: ''
+			}
+		}
+		var template = "<tr class='row'>"
    							+ "<td class='article'>"
-   							+ "<input class='description' type='text' name='description-value' size='40' placeholder='ej. Página web' value=''/>"
+   							+ "<input class='description' type='text' name='description-value' size='40' placeholder='ej. Página web' value='{DESCRIPTION}'/>"
 	   						+ "<input class='hidden-description' type='hidden' value=''/>"
    							+ "</td>"
-   							+ "<td><input class='cantidad' type='text' name='cost' placeholder='Cant.' size='2' value='0'/></td>"
-   							+ "<td><input class='coste' type='text' name='qty' placeholder='Coste' size='2' value='0'/></td>"
+   							+ "<td><input class='cantidad' type='text' name='cost' placeholder='Cant.' size='2' value='{CANTIDAD}'/></td>"
+   							+ "<td><input class='coste' type='text' name='qty' placeholder='Coste' size='2' value='{COSTE}'/></td>"
    							+ "<td class='value'><span class='precio'>0</span><input class='precio-hidden' type='hidden' name='price' value='0'/></td>"  
    							+ "<td class='insert'><a class='delete-row' href='#'>Delete Row</a></td>"			
    						+ "</tr>";
-		
-	//Add row
-	
-	$(".add-row").on("click", function(e) {
-		numRows++;
-		
+						
+		template = template.replace('{COSTE}',(item.coste).replace("'","\\'"));
+		template = template.replace('{CANTIDAD}',(item.cantidad).replace("'","\\'"));
+		template = template.replace('{DESCRIPTION}',(item.description).replace("'","\\'"));
 		$("#invoice-table > tbody > tr.row:last").after(template);
+	}
+	
+	function addTax(tax) {
+		if (typeof(tax) === 'undefined') {
+			tax = {
+				name: 'Tax',
+				value: '0'
+			}
+		}
+		template = "<tr class='added_tax'>"
+				   +'<td class="noborder">&nbsp;</td>'
+				   +'<td class="tax"><a class="delete-tax">Delete</a></td>'
+				   +'<td><span class="tax"><input class="tax_name" style="width:30px;" type="text" name="tax_names[]" placeholder="Tax" value="{TAX_NAME}" size="3"></span><input class="tax_value iva" type="text" name="tax_values[]" placeholder="0" value="{TAX_VALUE}" size="3"></td>'
+				   +'<td class="tax_total">0</td>'
+				   +'<input class="tax_total-hidden" type="hidden" name="tax_total[]" value="0">'
+				   +'</tr>';
+				   
+		template = template.replace('{TAX_NAME}',(tax.name).replace("'","\\'"));
+		template = template.replace('{TAX_VALUE}',(tax.value).replace("'","\\'"));
+		$("#invoice-table tr.add_tax_tr").before(template);
+	}
+	
+	
+	//add tax row 
+	$("#invoice-table").on("click",".delete-tax", function(e) {
+		var tableRow = $(this).closest("tr");
+		tableRow.remove();
+		updateTotal();
 		e.preventDefault();
-		
-		
 	});
 	
-	//Delete row
+	//add tax row 
+	$(".add_tax").on("click", function(e) {
+		addTax();
+		e.preventDefault();
+	});
 	
+	//Add row
+	$(".add-row").on("click", function(e) {
+		numRows++;
+		addRow();
+		e.preventDefault();
+	});
+	//Delete row
 	$("#invoice-table").on("click",".delete-row", function(e) {
-		
 		var tableRow = $(this).closest("tr");
-		
-
 		if(numRows > 1){
 			numRows--;
 			tableRow.remove();
 			updateTotal();
-			
 		} else {
 			alert("You can't delete the only row!");
 		}
 		e.preventDefault();
-		//CONSOLE LOG
-		
-		
 	});
 		
 	//Calculate
-	
-	$("#invoice-table").on("input", function(e) {
-		
-		
-			
-		$('div input').each(function(){
-		    $(this).keyup(function(){
-		        $(this).attr('value',$(this).val());
-		    });
-		});
+	$(document).on("change", "div input", function(e) {
+		changes_made = true;
 		if(e.target.className !== "description") {
 			updateTotal();
-		}
-					
+		}			
 	});
-	
+	$(document).on("keyup", "div input", function(e) {
+		var inputs = $('html').find("input:text"); $.each(inputs,function(){ $(this).attr('value',$(this).val()); });
+		changes_made = true;
+		if(e.target.className !== "description") {
+			updateTotal();
+		}			
+	});
 	//Update total function
-	
 	function updateTotal() {
-		var subtotal = 0,
-			iva = Number($(".iva").val()) / 100,
-			irpf = Number($(".irpf").val()) / 100;
-			
-			
-			
+		var subtotal = 0;
 		//Loop
+		$("#invoice-table > tbody > tr.row").each(function(){
+			quantity = $(this).find("input.cantidad").val();
+			cost = $(this).find("input.coste").val();
+			price = +cost * +quantity;
+			$(this).find(".precio").text(price);
+			$(this).find(".precio-hidden").val(price);
+			subtotal += price;
+		});
+var	total_taxes = 0;
 		
-		  $("#invoice-table > tbody > tr.row").each(function(){
-          quantity = $(this).find("input.cantidad").val();
-          cost = $(this).find("input.coste").val();
-          price = +cost * +quantity;
-          $(this).find(".precio").text(price);
-          $(this).find(".precio-hidden").val(price);
-          subtotal += price;
-        });
+		$('.added_tax').each(function(key, element) {
+			var tax = roundToTwo(($('input.tax_value').eq(key).val()/100)*subtotal);
+			total_taxes += tax;
+			$('.tax_total-hidden').eq(key).val(tax);
+			$('.tax_total').eq(key).html(
+				tax
+			);
+		});
 		
-		totaliva = roundToTwo(subtotal*iva);
-		totalirpf = roundToTwo(subtotal*irpf);
-		total = subtotal + totaliva + totalirpf;
-		
-		
+		//totaliva = roundToTwo(subtotal*iva);
+		//totalirpf = roundToTwo(subtotal*irpf);
+		total = subtotal + total_taxes;
 		
 		$(".subtotal").text(subtotal);
-		$(".totaliva").text(totaliva);
-		$(".totalirpf").text(totalirpf);
+		//$(".totaliva").text(totaliva);
+		//$(".totalirpf").text(totalirpf);
 		$(".total").text(roundToTwo(total));
 		//
 		$(".subtotal-hidden").val(subtotal);
-		$(".totaliva-hidden").val(totaliva);
-		$(".totalirpf-hidden").val(totalirpf);
+		//$(".totaliva-hidden").val(totaliva);
+		//$(".totalirpf-hidden").val(totalirpf);
 		$(".total-hidden").val(roundToTwo(total));
-		
-		
-
 	}
 	
 	//Round function
@@ -139,75 +233,147 @@ $(document).ready(function(){
     }
     
     //Save document with localStorage
-    
+    function saveLocalStorage() {
+		localStorage.setItem('Invoices_DS', JSON.stringify(dataStorage));
+	}
+	
+	
     function saveInvoice () {
-    	//Info
-    	localStorage.name = $( "#name" ).val();
-		localStorage.email = $( "#email" ).val();
-		localStorage.tel = $( "#tel" ).val();
-    	localStorage.invoice_num = $('#inv').val();
-    	
-	    //Rows
-	    localStorage.description = $("input.description").val();
-	    localStorage.quantity = quantity;
-	    localStorage.cost = cost;
-	    localStorage.price = price;
+		var invoice = {};
+		var items = [];
+		invoice.title = $("#invoice-title").val();
+		invoice.date = $('#invoice-date').val();
+		invoice.invoice_num = $('#inv').val();
+		
+		if (!invoice.invoice_num) {
+			alert('please specify invoice number');
+			return false;
+		}
+		invoice.client = {};
+		invoice.client.name = $( "#cname" ).val();
+		invoice.client.email = $( "#cemail" ).val();
+		invoice.client.tel = $( "#ctel" ).val();
 	    
-	    //Taxes
-	    localStorage.totaliva = totaliva;
-	    localStorage.totalirpf = totalirpf;
-	    
-	    //Totals
-    	localStorage.subtotal = $(".subtotal").text();
-	    localStorage.total = $(".total").text();
-	    
-	    addToArray();
-	    
+		invoice.user = {};
+		invoice.user.name = $( "#name" ).val();
+		invoice.user.email = $( "#email" ).val();
+		invoice.user.tel = $( "#tel" ).val();
+		
+	    invoice.taxes = [];
+		$('.added_tax').each(function(key, element) {
+			invoice.taxes.push({name: $('input.tax_name').eq(key).val(), value: $('input.tax_value').eq(key).val()});
+		});
+		invoice.notas = $("#invoice-notas").val();
+	    $('.row').each(function(key, element) {
+			items[key] = { 
+				description: $('input.description').eq(key).val(),
+				cantidad: $('.cantidad').eq(key).val(),
+				coste: $('.coste').eq(key).val(),
+				//precio: $('.precio').eq(key).text() //we dont need this
+			};
+		});
+	   invoice.items = items;
+	   
+	   if( Object.prototype.toString.call( dataStorage.invoices ) !== '[object Object]' ) {
+			dataStorage.invoices = {};
+	   }
+	   
+	   if (typeof(dataStorage.invoices['invoice'+invoice.invoice_num]) !== 'undefined') {
+		  if (!confirm('do you really want to overwrite the invoice N'+invoice.invoice_num+'?')) {
+				return;
+			}
+	   }
+	   dataStorage.invoices['invoice'+invoice.invoice_num] = invoice;
+	   saveLocalStorage();
+	   displayInvoices();
+	   changes_made = false;
     }
     
-    function loadInvoice () {
+	
+    function loadInvoice (invoice_num) {
+		
+		if (!checkChanges() || confirm('There are unsaved changes, do you want to proceed?')) {
+			resetForm();
+		} 
+		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
+			alert('No such invoice');
+			return false;
+		}
+		var invoice = dataStorage.invoices['invoice'+invoice_num];
     	//Info
-    	$( "#name" ).val(localStorage.name);
-    	$( "#email" ).val(localStorage.email);
-    	$( "#tel" ).val(localStorage.tel);
-	    $( "#inv" ).val(localStorage.invoice_num);
-	    
-	    //Rows
-	    $("input.description").val(localStorage.description);
-	    $(".cantidad").val(localStorage.quantity);
-	    $(".coste").val(localStorage.cost);
-	    $(".precio").text(localStorage.price);
-	    
-	    //Taxes
-	    $(".totaliva").text(localStorage.totaliva);
-	    $(".totalirpf").text(localStorage.totalirpf);
-	    
-	    //Totals
-	    $(".subtotal").text(localStorage.subtotal);
-	    $(".total").text(localStorage.total);
+    	$( "#name" ).val(invoice.user.name);
+    	$( "#email" ).val(invoice.user.email);
+    	$( "#tel" ).val(invoice.user.tel);
+		
+		$( "#cname" ).val(invoice.client.name);
+    	$( "#cemail" ).val(invoice.client.email);
+    	$( "#ctel" ).val(invoice.client.tel);
+		
+	    $( "#inv" ).val(invoice.invoice_num);
+	    $("#invoice-notas").val(invoice.notas);
+	    $('#invoice-title').val(invoice.title);
+		
+		var keys = Object.keys(invoice.items);
+		for (i in keys) {
+			addRow(invoice.items[keys[i]]);
+		}
+		if (keys.length) {
+			$("#invoice-table tr.row:first").remove();
+		}
+		
+		if (invoice.taxes.length) {
+			$("#invoice-table tr.added_tax").remove(); //remove all added taxes
+			for (i in invoice.taxes) {
+				addTax(invoice.taxes[i]);
+			}
+		}
+		updateTotal();
     }
-    
-    //Saves rows to an Array
-    function addToArray() {
-	     $('.row').each(function(key, element) {
-	     
-	    items[key] = { 
-	    
-	    description: $('input.description').eq(key).val(),
-	    cantidad: $('.cantidad').eq(key).val(),
-	    coste: $('.coste').eq(key).val(),
-	    precio: $('.precio').eq(key).text()
-	    };
-	    console.log("How many rows: " + key)
-	  });
-	   
-	   for (var item in items) {
-		   //console.log(items[item]);
-	   
-	  localStorage.setItem('items', JSON.stringify(items[item]));
-	  console.log(JSON.parse(localStorage.getItem('items')));
-	  }
-   } 
+	
+    function deleteInvoice(invoice_num) {
+		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
+			alert('No such invoice');
+			return false;
+		}
+		if (confirm('Do you really want to delete invoice N'+invoice_num+"?")) {
+			delete dataStorage.invoices['invoice'+invoice_num];
+			saveLocalStorage();
+			displayInvoices();
+		}
+	}
+	
+	function loadLocalStorage() {
+		dataStorage = JSON.parse(localStorage.getItem('Invoices_DS'));
+		if( Object.prototype.toString.call( dataStorage ) !== '[object Object]' ) {
+			dataStorage = {};
+			dataStorage.invoices = {};
+			saveLocalStorage();
+		}
+	}
+	
+	
+
+   function createInvoiceMenu(invoices) {
+		var html = '<ul>';
+		var reverse = []
+		for (var invoice in invoices) {
+			reverse.push(invoice);
+		}
+		reverse.reverse();
+		for (var invoice in reverse) {
+			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].title+"</span>("+invoices[reverse[invoice]].invoice_num+")<br/><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
+		}
+		html += "</ul>";
+		return html;
+   }
    
+   function displayInvoices() {
+		var invoiceshtml = createInvoiceMenu(dataStorage.invoices)
+		$('#invoices').html(invoiceshtml);
+   }
+   
+   loadLocalStorage();
+   resetForm();
+   displayInvoices();
    
 });
