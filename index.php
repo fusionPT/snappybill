@@ -43,11 +43,11 @@
   <div id="main" role="main">
     <header>
 		
-		<input class="title" type="text" name="invoice-title" placeholder="Factura" value="Factura"/>
+		<input class="title" type="text" name="invoice-title" placeholder="Factura" value="Factura" id='invoice-title'/>
 		
 		<fieldset id="invoice-num">
 			<input type="text" name="invoice" placeholder="Numero de factura" id="inv"/><br />
-			<input type="text" name="date" placeholder="26-01-12" value="<?php echo date('d/m/Y');?>"/><br />
+			<input type="text" name="date" placeholder="<?php echo date('d/m/Y');?>" value="<?php echo date('d/m/Y');?>" id='invoice-date'/><br />
 		</fieldset>
     </header>
     
@@ -64,9 +64,9 @@
 		
 			<fieldset id="billto">
 			<h3>Facturar a:</h3>
-				<input type="text" name="cname" placeholder="Nombre, dirección, NIF..."/><br />
-				<input type="text" name="cemail" placeholder=""/><br />
-				<input type="text" name="ctel" placeholder=""/><br />
+				<input type="text" id='cname' name="cname" placeholder="Nombre, dirección, NIF..."/><br />
+				<input type="text" id='cemail' name="cemail" placeholder=""/><br />
+				<input type="text" id='ctel' name="ctel" placeholder=""/><br />
 				
 			</fieldset>
 		
@@ -107,13 +107,14 @@
    					</tbody>
    					<tfoot>
    						
-   						<tr>
+   						<tr >
    							<td class="add"><a href="#" class="add-row">+ Añadir linea</a></td>
    							<td colspan="2" class="bold">Subtotal</td>
    							<td class="subtotal">0</td>
    							<input class="subtotal-hidden" type="hidden" name="subtotal" value="0">
    						</tr>
-   						<tr>
+						
+   					<!--	<tr>
    						  <td class="noborder">&nbsp;</td>
    						  <td class="tax"></td>
    						  <td><span class="tax">IVA</span><input class="iva" type="text" name="tax1" placeholder="IVA" value="21" size="2"/></td>
@@ -126,7 +127,17 @@
    						  <td><span class="tax">IRPF</span><input class="irpf" type="text" name="tax2" placeholder="IRPF" value="-21" size="2"/></td>
    							<td class="totalirpf">0</td>
    							<input class="totalirpf-hidden" type="hidden" name="totalirpf" value="0">
+   						</tr>-->
+						
+						<tr class='add_tax_tr'>
+   						  <td class="noborder">&nbsp;</td>
+   						  <td class="tax"></td>
+   						  <td><a href='#' class="add_tax">+ Add tax</a></td>
+   							<td class=""></td>
+   				
    						</tr>
+						
+						
    						<tr>
    						  <td class="noborder">&nbsp;</td>
    						  <td colspan="2" class="noborder"><strong>TOTAL</strong></td>
@@ -142,16 +153,43 @@
    		
    		<div id="pay">
    			<h3>Notas</h3>
-   			<textarea name="notas"></textarea>
+   			<textarea name="notas" id='invoice-notas'></textarea>
    		</div>
 
     	</div><!--! end of #main -->
- 	
-   
+ 
     </div> <!--! end of #page-container -->
+	<style>
+		#invoices li {
+			margin-bottom:20px;
+			position:relative;
+		}
+		.inv_title {
+			font-size: 18px;
+			font-weight: bolder;
+			cursor:pointer;
+		}
+		.inv_date {
+			font-size: 11px;
+		}
+		.inv_delete.delete-row {
+			position: absolute;
+			top: 4px;
+			left: -17px;
+		}
+	</style>
     <div class="sidebar">
+	
+			<input type="button"  id='create_new' value="Create new invoice"/>
     		<input type="submit" name="submit" id="descargar" value="Descargar"/>
     		<input type="button" name="guardar" id="guardar" value="Guardar"/>
+			
+			<br/>
+			<div style='clear:both'></div>
+			<h2 style='margin-top:60px;margin-bottom:20px;'>LAST INVOICES:</h2>
+			<div id='invoices'>
+			
+			</div>
     	</div><!-- End of sidebar -->
 
    		</form>

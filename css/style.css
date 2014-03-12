@@ -218,7 +218,7 @@ textarea {
   position: relative; }
 
 /* Add and Delete rows */
-.delete-row {
+.delete-row,.delete-tax {
   height: 12px;
   width: 12px;
   color: #414141;
@@ -227,7 +227,7 @@ textarea {
   display: inline-block;
   overflow: hidden; }
 
-.delete-row:hover {
+.delete-row:hover,.delete-tax:hover {
   background: url(../images/delete-icon.png) no-repeat 0 -12px; }
 
 .insert {
@@ -266,7 +266,18 @@ textarea {
   transition: all .4s;
   -webkit-transition: all .4s;
   /* Safari */ }
-
+  
+#create_new {
+font-size: 17px;
+width: 160px;
+padding: 15px 20px 15px 8px;
+-webkit-border-radius: 40px;
+-moz-border-radius: 40px;
+border-radius: 40px;
+border: 3px solid #5C98F3;
+transition: all .4s;
+-webkit-transition: all .4s; }
+  
 #descargar:hover {
   border: 3px solid #c1daff;
   color: #71a3ee; }
@@ -305,3 +316,15 @@ footer {
   fieldset#billto {
     width: 100%;
     float: none; } }
+
+	
+	
+	
+a.add_tax:hover {
+color: #2C79EC;
+text-decoration: none;
+}
+a.add_tax {
+color: #CCC;
+font-weight: 600;
+}
