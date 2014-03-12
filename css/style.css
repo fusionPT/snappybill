@@ -183,24 +183,6 @@ input[type="text"] {
   -webkit-box-sizing: border-box;
   width: 100%; }
 
-input[type="text"]:hover {
-  border-bottom: 1px solid blue; }
-
-input[type="submit"], input[type="button"] {
-  appearance: none;
-  -webkit-appearance: none;
-  background: none;
-  border: none;
-  color: #2c79ec;
-  font-size: 16px;
-  text-align: left;
-  margin-bottom: 20px;
-  float: left;
-  display: block;
-  padding-left: 28px;
-  font-size: 18px;
-  cursor: pointer; }
-
 textarea {
   padding: 20px;
   width: 93%;
@@ -218,7 +200,7 @@ textarea {
   position: relative; }
 
 /* Add and Delete rows */
-.delete-row,.delete-tax {
+.delete-row {
   height: 12px;
   width: 12px;
   color: #414141;
@@ -227,7 +209,7 @@ textarea {
   display: inline-block;
   overflow: hidden; }
 
-.delete-row:hover,.delete-tax:hover {
+.delete-row:hover {
   background: url(../images/delete-icon.png) no-repeat 0 -12px; }
 
 .insert {
@@ -242,49 +224,52 @@ textarea {
   width: 16%;
   overflow: hidden;
   padding: 2% 0 0 2%; }
+  .sidebar h2 {
+    margin-top: 50px;
+    margin-bottom: 20px; }
 
-#descargar {
-  background: url(../images/download-icon.png) no-repeat 19px 18px;
-  padding: 15px 20px 15px 44px;
-  width: 160px;
+#invoices li {
+  margin-bottom: 20px;
+  position: relative; }
+
+.inv_title {
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  color: #2c79ec; }
+
+.inv_date {
+  font-size: 0.9em;
+  color: #b4b4b4;
+  display: inline-block;
+  padding-top: 5px; }
+
+.inv_delete.delete-row {
+  position: absolute;
+  top: 4px;
+  left: -17px; }
+
+input[type="submit"], input[type="button"] {
+  font-size: 1.2em;
+  padding: 15px;
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
   border-radius: 40px;
   border: 3px solid #5c98f3;
   transition: all .4s;
   -webkit-transition: all .4s;
-  /* Safari */ }
-
-#guardar {
-  width: 160px;
-  background: url(../images/save-icon.png) no-repeat 30px 18px;
-  padding: 15px 20px 15px 55px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  border-radius: 40px;
-  border: 3px solid #5c98f3;
-  transition: all .4s;
-  -webkit-transition: all .4s;
-  /* Safari */ }
-  
-#create_new {
-font-size: 17px;
-width: 160px;
-padding: 15px 20px 15px 8px;
--webkit-border-radius: 40px;
--moz-border-radius: 40px;
-border-radius: 40px;
-border: 3px solid #5C98F3;
-transition: all .4s;
--webkit-transition: all .4s; }
-  
-#descargar:hover {
-  border: 3px solid #c1daff;
-  color: #71a3ee; }
-
-#guardar:hover {
-  border: 3px solid #c1daff;
-  color: #71a3ee; }
+  /* Safari */
+  cursor: pointer;
+  -webkit-appearance: none;
+  background: none;
+  color: #2c79ec;
+  min-width: 150px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  float: left; }
+  input[type="submit"]:hover, input[type="button"]:hover {
+    border: 3px solid #c1daff;
+    color: #71a3ee; }
 
 footer {
   padding: 40px 0 40px;
@@ -316,15 +301,3 @@ footer {
   fieldset#billto {
     width: 100%;
     float: none; } }
-
-	
-	
-	
-a.add_tax:hover {
-color: #2C79EC;
-text-decoration: none;
-}
-a.add_tax {
-color: #CCC;
-font-weight: 600;
-}

@@ -1,3 +1,6 @@
+//
+//facturarapida.net v0.5
+//
 $(document).ready(function(){
 	var dataStorage = {};
 	//Variables
@@ -361,7 +364,7 @@ var	total_taxes = 0;
 		}
 		reverse.reverse();
 		for (var invoice in reverse) {
-			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].title+"</span>("+invoices[reverse[invoice]].invoice_num+")<br/><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
+			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].invoice_num+" </span><br/><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
 		}
 		html += "</ul>";
 		return html;

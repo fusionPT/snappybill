@@ -159,34 +159,16 @@
     	</div><!--! end of #main -->
  
     </div> <!--! end of #page-container -->
-	<style>
-		#invoices li {
-			margin-bottom:20px;
-			position:relative;
-		}
-		.inv_title {
-			font-size: 18px;
-			font-weight: bolder;
-			cursor:pointer;
-		}
-		.inv_date {
-			font-size: 11px;
-		}
-		.inv_delete.delete-row {
-			position: absolute;
-			top: 4px;
-			left: -17px;
-		}
-	</style>
+	
     <div class="sidebar">
 	
-			<input type="button"  id='create_new' value="Create new invoice"/>
+			<input type="button"  id='create_new' value="Nueva Factura"/>
     		<input type="submit" name="submit" id="descargar" value="Descargar"/>
     		<input type="button" name="guardar" id="guardar" value="Guardar"/>
 			
 			<br/>
 			<div style='clear:both'></div>
-			<h2 style='margin-top:60px;margin-bottom:20px;'>LAST INVOICES:</h2>
+			<h2>LAST INVOICES</h2>
 			<div id='invoices'>
 			
 			</div>
@@ -210,7 +192,7 @@
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app-ck.js"></script>
   
 
   
