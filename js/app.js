@@ -373,6 +373,7 @@ var	total_taxes = 0;
 			delete dataStorage.invoices['invoice'+invoice_num];
 			saveLocalStorage();
 			displayInvoices();
+			
 		}
 	}
 	

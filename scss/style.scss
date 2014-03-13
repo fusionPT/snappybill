@@ -392,6 +392,8 @@ ul.menu {
 	color: $link_color;
 	&:hover {
 		
+		border-bottom: 1px dashed $link_color;
+	
 	}
 }
 .inv_date {
