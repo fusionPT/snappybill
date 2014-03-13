@@ -132,7 +132,7 @@
 						<tr class='add_tax_tr'>
    						  <td class="noborder">&nbsp;</td>
    						  <td class="tax"></td>
-   						  <td><a href='#' class="add_tax">+ Add tax</a></td>
+   						  <td><a href='#' class="add_tax">+ Impuesto</a></td>
    							<td class=""></td>
    				
    						</tr>

@@ -100,6 +100,7 @@ $(document).ready(function(){
 	
 	function addRow(item) {
 		numRows++;
+		
 		if (typeof(item) === 'undefined') {
 			item = {
 				coste: '0',
@@ -122,6 +123,9 @@ $(document).ready(function(){
 		template = template.replace('{CANTIDAD}',(item.cantidad).replace("'","\\'"));
 		template = template.replace('{DESCRIPTION}',(item.description).replace("'","\\'"));
 		$("#invoice-table > tbody > tr.row:last").after(template);
+		
+		console.log("Rows: " + numRows);
+		
 	}
 	
 	function addTax(tax) {
@@ -161,7 +165,7 @@ $(document).ready(function(){
 	
 	//Add row
 	$(".add-row").on("click", function(e) {
-		numRows++;
+		
 		addRow();
 		e.preventDefault();
 	});
@@ -172,6 +176,7 @@ $(document).ready(function(){
 			numRows--;
 			tableRow.remove();
 			updateTotal();
+			console.log("Rows: " + numRows);
 		} else {
 			alert("No puedes borrar la unica linea!");
 		}
@@ -203,7 +208,9 @@ $(document).ready(function(){
 			$(this).find(".precio").text(currentCurrency+price);
 			$(this).find(".precio-hidden").val(price);
 			subtotal += price;
+			
 		});
+		
 var	total_taxes = 0;
 		
 		$('.added_tax').each(function(key, element) {
