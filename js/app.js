@@ -1,6 +1,3 @@
-//
-//facturarapida.net v0.5
-//
 $(document).ready(function(){
 	var dataStorage = {};
 	//Variables
@@ -323,13 +320,12 @@ var	total_taxes = 0;
 		if (keys.length) {
 			$("#invoice-table tr.row:first").remove();
 		}
-		
+		$("#invoice-table tr.added_tax").remove(); //remove all added taxes
 		if (invoice.taxes.length) {
-			$("#invoice-table tr.added_tax").remove(); //remove all added taxes
 			for (i in invoice.taxes) {
 				addTax(invoice.taxes[i]);
 			}
-		}
+		} 
 		updateTotal();
     }
 	
@@ -364,7 +360,7 @@ var	total_taxes = 0;
 		}
 		reverse.reverse();
 		for (var invoice in reverse) {
-			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].invoice_num+" </span><br/><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
+			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].invoice_num+"</span><br/><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
 		}
 		html += "</ul>";
 		return html;

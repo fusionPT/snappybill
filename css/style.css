@@ -237,6 +237,8 @@ textarea {
   font-weight: 600;
   cursor: pointer;
   color: #2c79ec; }
+  .inv_title:hover {
+    text-decoration: underline; }
 
 .inv_date {
   font-size: 0.9em;
@@ -247,7 +249,8 @@ textarea {
 .inv_delete.delete-row {
   position: absolute;
   top: 4px;
-  left: -17px; }
+  left: -17px;
+  cursor: pointer; }
 
 input[type="submit"], input[type="button"] {
   font-size: 1.2em;
