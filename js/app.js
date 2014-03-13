@@ -349,10 +349,11 @@ var	total_taxes = 0;
 	
 	function showAlert(text){
 	
-			var response = $("<div class='alert'><p>" + text + "</p><a class='remove-alert'>Remove</a></div>").fadeIn("slow");
-			$("#page-container").before(response);
+			var response = $("<div class='alert'><div class='container'><p>" + text + "</p><a class='remove-alert'>Remove</a></div></div>").fadeIn("fast");
+			$(".container").before(response);
+			
 			$(".remove-alert").on("click", function(e) {
-				$(".alert").fadeOut("slow", function(){
+				$(".alert").slideUp("fast", function(){
 					
 					$(this).remove();
 					
@@ -398,6 +399,7 @@ var	total_taxes = 0;
 		}
 		html += "</ul>";
 		return html;
+		
    }
    
    function displayInvoices() {

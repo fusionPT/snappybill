@@ -2,9 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-       Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>Factura Rapida</title>
@@ -32,11 +29,22 @@
 
 <body>
 
-  <div id="container">
-	  
-  <h1>Factura<span>rapida</span>.net</h1>
-  <h2>Factura a PDF. Sin complicaciones. Gratis.</h2>
-  
+	<div class="container">
+		<div class="top">
+			<hgroup>
+				<h1>Facturarapida.net</h1>
+				<h2>Facturación. Simples. Gratis.</h2>
+			</hgroup>
+			<ul class="menu">
+				
+				<li><input type="button"  id="create_new" value="Nueva Factura"/></li>
+				<li><input type="submit" name="submit" id="descargar" value="Descargar"/></li>
+				<li><input type="button" name="guardar" id="guardar" value="Guardar"/></li>
+				
+			</ul>
+			
+		</div>
+		
   <div id="page-container">
   
   <form id="invoice" method="POST" action="invoice_html.php"><!-- Invoice form -->
@@ -162,14 +170,11 @@
 	
     <div class="sidebar">
 	
-			<input type="button"  id='create_new' value="Nueva Factura"/>
-    		<input type="submit" name="submit" id="descargar" value="Descargar"/>
-    		<input type="button" name="guardar" id="guardar" value="Guardar"/>
 			
-			<br/>
-			<div style='clear:both'></div>
+			
+			
 			<h2>Ultimas facturas</h2>
-			<div id='invoices'>
+			<div id="invoices">
 			
 			</div>
     	</div><!-- End of sidebar -->
