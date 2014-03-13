@@ -2,6 +2,7 @@
 
 $bg_color: #f6f6f6;
 $link_color: #2c79ec;
+$alert_color: #49b556;
 
 /* General Rules */
 
@@ -429,6 +430,42 @@ footer {
 .total {
 	font-size: 24px;
 	font-weight: bold;
+}
+
+//Alert boxes
+
+.alert {
+	background: $link_color;
+	padding: 15px 20px;
+	position: absolute;
+	top: 0px;
+	right: 45%;
+	
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	opacity: .9;
+	p {
+		text-align: center;
+		font-family: "Open Sans", sans-serif;
+		color: #fff;
+		display: inline-block;
+	}
+	a {
+		display: inline-block;
+		cursor: pointer;
+		color: #fff;
+		margin-left: 20px;
+		line-height: 10px;
+		background: url(../images/delete-icon-white.png) no-repeat 0 0px;
+		height: 12px;
+		width: 12px;
+		text-indent: -9999px;
+		&:hover {
+			opacity: .5;
+		}
+	}
 }
 
 /*-------------------------------------
