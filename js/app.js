@@ -173,7 +173,7 @@ $(document).ready(function(){
 			tableRow.remove();
 			updateTotal();
 		} else {
-			alert("You can't delete the only row!");
+			alert("No puedes borrar la unica linea!");
 		}
 		e.preventDefault();
 	});
@@ -250,7 +250,7 @@ var	total_taxes = 0;
 		invoice.invoice_num = $('#inv').val();
 		
 		if (!invoice.invoice_num) {
-			alert('please specify invoice number');
+			alert('Tienes de indicar un numero de factura');
 			return false;
 		}
 		invoice.client = {};
@@ -300,7 +300,7 @@ var	total_taxes = 0;
 			resetForm();
 		} 
 		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
-			alert('No such invoice');
+			alert('No existe esa factura');
 			return false;
 		}
 		var invoice = dataStorage.invoices['invoice'+invoice_num];
@@ -335,7 +335,7 @@ var	total_taxes = 0;
 	
     function deleteInvoice(invoice_num) {
 		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
-			alert('No such invoice');
+			alert('No existe esa factura');
 			return false;
 		}
 		if (confirm('Quieres borrar la factura '+invoice_num+"?")) {
