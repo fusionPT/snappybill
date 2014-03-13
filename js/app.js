@@ -6,7 +6,10 @@ $(document).ready(function(){
 		cost = 0,
 		price = 0,
 		totaliva = 0,
-		totalirpf = 0;
+		totalirpf = 0,
+		currencySign = ["€","$"],
+		currentCurrency = currencySign[0];
+		
 	//Creates array
 	var items = {};
 	//Loads saved invoice data
@@ -197,7 +200,7 @@ $(document).ready(function(){
 			quantity = $(this).find("input.cantidad").val();
 			cost = $(this).find("input.coste").val();
 			price = +cost * +quantity;
-			$(this).find(".precio").text(price);
+			$(this).find(".precio").text(currentCurrency+price);
 			$(this).find(".precio-hidden").val(price);
 			subtotal += price;
 		});
@@ -208,7 +211,7 @@ var	total_taxes = 0;
 			total_taxes += tax;
 			$('.tax_total-hidden').eq(key).val(tax);
 			$('.tax_total').eq(key).html(
-				tax
+				currentCurrency + tax
 			);
 		});
 		
@@ -216,10 +219,10 @@ var	total_taxes = 0;
 		//totalirpf = roundToTwo(subtotal*irpf);
 		total = subtotal + total_taxes;
 		
-		$(".subtotal").text(subtotal);
+		$(".subtotal").text(currentCurrency + subtotal);
 		//$(".totaliva").text(totaliva);
 		//$(".totalirpf").text(totalirpf);
-		$(".total").text(roundToTwo(total));
+		$(".total").text(currentCurrency + roundToTwo(total));
 		//
 		$(".subtotal-hidden").val(subtotal);
 		//$(".totaliva-hidden").val(totaliva);
@@ -229,6 +232,7 @@ var	total_taxes = 0;
 	
 	//Round function
 	function roundToTwo(value) {
+		
         return(Math.round(value * 100) / 100);
     }
     
@@ -279,7 +283,7 @@ var	total_taxes = 0;
 	   }
 	   
 	   if (typeof(dataStorage.invoices['invoice'+invoice.invoice_num]) !== 'undefined') {
-		  if (!confirm('do you really want to overwrite the invoice N'+invoice.invoice_num+'?')) {
+		  if (!confirm('Quieres reemplazar la factura '+invoice.invoice_num+'?')) {
 				return;
 			}
 	   }
@@ -292,7 +296,7 @@ var	total_taxes = 0;
 	
     function loadInvoice (invoice_num) {
 		
-		if (!checkChanges() || confirm('There are unsaved changes, do you want to proceed?')) {
+		if (!checkChanges() || confirm('No fue grabado, quieres continuar?')) {
 			resetForm();
 		} 
 		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
@@ -334,7 +338,7 @@ var	total_taxes = 0;
 			alert('No such invoice');
 			return false;
 		}
-		if (confirm('Do you really want to delete invoice N'+invoice_num+"?")) {
+		if (confirm('Quieres borrar la factura '+invoice_num+"?")) {
 			delete dataStorage.invoices['invoice'+invoice_num];
 			saveLocalStorage();
 			displayInvoices();
@@ -369,6 +373,10 @@ var	total_taxes = 0;
    function displayInvoices() {
 		var invoiceshtml = createInvoiceMenu(dataStorage.invoices)
 		$('#invoices').html(invoiceshtml);
+   }
+   
+   function changeCurrency (curr) {
+	   
    }
    
    loadLocalStorage();

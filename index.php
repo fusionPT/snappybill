@@ -168,7 +168,7 @@
 			
 			<br/>
 			<div style='clear:both'></div>
-			<h2>LAST INVOICES</h2>
+			<h2>Ultimas facturas</h2>
 			<div id='invoices'>
 			
 			</div>

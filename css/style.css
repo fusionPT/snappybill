@@ -106,10 +106,10 @@ table {
 .right {
   float: right; }
 
-a.add-row {
+a.add-row, a.add_tax {
   color: #ccc;
   font-weight: 600; }
-  a.add-row:hover {
+  a.add-row:hover, a.add_tax:hover {
     color: #2c79ec;
     text-decoration: none; }
 
@@ -207,10 +207,26 @@ textarea {
   background: url(../images/delete-icon.png) no-repeat 0 0px;
   text-indent: 9999px;
   display: inline-block;
-  overflow: hidden; }
+  overflow: hidden;
+  position: absolute;
+  cursor: pointer; }
+  .delete-row.delete-row:hover {
+    background: url(../images/delete-icon.png) no-repeat 0 -12px; }
 
-.delete-row:hover {
-  background: url(../images/delete-icon.png) no-repeat 0 -12px; }
+.delete-tax {
+  height: 12px;
+  width: 12px;
+  color: #414141;
+  background: url(../images/delete-icon.png) no-repeat 0 0px;
+  text-indent: 9999px;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  cursor: pointer;
+  top: -12px;
+  position: relative; }
+  .delete-tax.delete-tax:hover {
+    background: url(../images/delete-icon.png) no-repeat 0 -12px; }
 
 .insert {
   position: absolute;
@@ -237,8 +253,6 @@ textarea {
   font-weight: 600;
   cursor: pointer;
   color: #2c79ec; }
-  .inv_title:hover {
-    text-decoration: underline; }
 
 .inv_date {
   font-size: 0.9em;
@@ -246,7 +260,7 @@ textarea {
   display: inline-block;
   padding-top: 5px; }
 
-.inv_delete.delete-row {
+.inv_delete {
   position: absolute;
   top: 4px;
   left: -17px;
