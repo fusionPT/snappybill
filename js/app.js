@@ -12,6 +12,9 @@ $(document).ready(function(){
 		
 	//Creates array
 	var items = {};
+	
+	//showInputLines();
+	
 	//Loads saved invoice data
 	//loadInvoice();
 	//Cuando clica en descargar
@@ -361,6 +364,30 @@ var	total_taxes = 0;
 		
 			});
 	
+	}
+	
+	//Controls invoice animations
+	
+	function showInputLines(){
+		$("#page-container").find("input").css("border-color","#fff");
+		
+		$("#page-container").find("a.add-row").hide();
+		$("#page-container").find("a.add_tax").hide();
+				
+		$("#page-container").on("mouseenter", function(e) {
+				
+				$(this).find("input").css("border-bottom","1px solid #ccc");
+				$(this).find("a.add-row").show();
+				$(this).find("a.add_tax").show();
+
+		});
+		$("#page-container").on("mouseleave", function(e) {
+				
+				$(this).find("input").css("border-color","#fff");
+				$(this).find("a.add-row").hide();
+				$(this).find("a.add_tax").hide();
+		});
+		
 	}
 	
     function deleteInvoice(invoice_num) {

@@ -116,6 +116,12 @@ a.add-row, a.add_tax {
     color: #2c79ec;
     text-decoration: none; }
 
+a.add_tax {
+  position: absolute;
+  width: 140px;
+  right: 105px;
+  bottom: 70px; }
+
 #page-container {
   width: 80%;
   background: white;
@@ -179,7 +185,7 @@ input[type="text"] {
   appearance: none;
   -webkit-appearance: none;
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e6e6e6;
   margin: 0px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -328,6 +334,14 @@ input[type="submit"], input[type="button"] {
   #guardar:hover {
     cursor: pointer;
     background-color: #3274c0; }
+
+.fb-like {
+  float: right; }
+
+.twitter-share-button {
+  float: right;
+  margin: 0 !important;
+  padding: 0 !important; }
 
 footer {
   padding: 40px 0 40px;
