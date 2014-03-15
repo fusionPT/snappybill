@@ -35,13 +35,7 @@
 				<h1>Facturarapida.net</h1>
 				<h2>Facturación. Simples. Gratis.</h2>
 			</hgroup>
-			<ul class="menu">
-				
-				<li><input type="button"  id="create_new" value="Nueva Factura"/></li>
-				<li><input type="submit" name="submit" id="descargar" value="Descargar"/></li>
-				<li><input type="button" name="guardar" id="guardar" value="Guardar"/></li>
-				
-			</ul>
+			
 			
 		</div>
 		
@@ -140,7 +134,7 @@
 						<tr class='add_tax_tr'>
    						  <td class="noborder">&nbsp;</td>
    						  <td class="tax"></td>
-   						  <td><a href='#' class="add_tax">+ Impuesto</a></td>
+   						  <td><a href='#' class="add_tax">+ Añadir Impuesto</a></td>
    							<td class=""></td>
    				
    						</tr>
@@ -170,12 +164,18 @@
 	
     <div class="sidebar">
 	
-			
+			<ul class="menu">
+				
+				<li><input type="button"  id="create_new" value="Nueva"/></li>
+				<li><input type="submit" name="submit" id="descargar" value="Descargar"/></li>
+				<li><input type="button" name="guardar" id="guardar" value="Guardar"/></li>
+				
+			</ul>
 			
 			
 			<h2>Ultimas facturas</h2>
 			<div id="invoices">
-			
+			<p>No hay facturas guardadas aun.</p>
 			</div>
     	</div><!-- End of sidebar -->
 
