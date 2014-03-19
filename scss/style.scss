@@ -5,6 +5,15 @@ $link_color: #2c79ec;
 $alert_color: #b55d49;
 $text-color: #404040;
 
+/* Mixins */
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
 /* General Rules */
 
 .clearfix {
@@ -443,6 +452,19 @@ select {
 	padding-top: 5px;
 	
 }
+
+.inv_total {
+	font-size: 1em;
+	color: #fff;
+	display: inline-block;
+	padding-top: 5px;
+	background: #b4b4b4;
+	padding: 4px 5px;
+	@include border-radius(3px);
+	margin-left: 4px;
+	
+}
+
 .inv_delete {
 	position: absolute;
 	top: 4px;

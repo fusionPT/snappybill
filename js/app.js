@@ -268,7 +268,7 @@ var	total_taxes = 0;
 		invoice.invoice_num = $('#inv').val();
 		//Valor del dropdown de idioma
 		invoice.language = $("#language").val();
-		
+		invoice.invoice_total = $("td.total").text();
 		
 		if (!invoice.invoice_num) {
 			//alert('Tienes de indicar un numero de factura');
@@ -305,6 +305,7 @@ var	total_taxes = 0;
 			};
 		});
 	   invoice.items = items;
+	   
 	   
 	   if( Object.prototype.toString.call( dataStorage.invoices ) !== '[object Object]' ) {
 			dataStorage.invoices = {};
@@ -353,6 +354,7 @@ var	total_taxes = 0;
 	    $( "#inv" ).val(invoice.invoice_num);
 	    $("#invoice-notas").val(invoice.notas);
 	    $('#invoice-title').val(invoice.title);
+	    $("td.total").text(invoice.total);
 		//Language
 		$('#language option[value="' + invoice.language + '"]').prop('selected',true);
 		
@@ -437,7 +439,7 @@ var	total_taxes = 0;
 		}
 	}
 	
-	
+	//////////// Invoices sidebar
 
    function createInvoiceMenu(invoices) {
 		var html = '<ul>';
@@ -447,7 +449,24 @@ var	total_taxes = 0;
 		}
 		reverse.reverse();
 		for (var invoice in reverse) {
-			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].invoice_num+"</span><br/><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
+			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].invoice_num+"</span><span class='inv_total'>"+invoices[reverse[invoice]].invoice_total+"</span><br/><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
+		}
+		html += "</ul>";
+		return html;
+		
+   }
+   
+   //////////// List invoices page
+   
+   function createInvoiceList(invoices) {
+		var html = '<ul>';
+		var reverse = []
+		for (var invoice in invoices) {
+			reverse.push(invoice);
+		}
+		reverse.reverse();
+		for (var invoice in reverse) {
+			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].invoice_num+"</span><span class='inv_total'>"+invoices[reverse[invoice]].client.name+"</span><span class='inv_total'>"+invoices[reverse[invoice]].invoice_total+"</span><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
 		}
 		html += "</ul>";
 		return html;
@@ -456,7 +475,9 @@ var	total_taxes = 0;
    
    function displayInvoices() {
 		var invoiceshtml = createInvoiceMenu(dataStorage.invoices)
+		var invoiceslist = createInvoiceList(dataStorage.invoices)
 		$('#invoices').html(invoiceshtml);
+		$('#invoice-list').html(invoiceslist);
    }
    
    //
@@ -533,6 +554,10 @@ var	total_taxes = 0;
 
    }
    $( "select" ).change( selectLang );
+   
+   function listInvoice() {
+	   $("#invoice-list").html('')
+   }
    
    loadLocalStorage();
    resetForm();

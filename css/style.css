@@ -1,4 +1,5 @@
 /* Estilo para facturame */
+/* Mixins */
 /* General Rules */
 .clearfix {
   clear: both; }
@@ -313,6 +314,19 @@ select {
   color: #b4b4b4;
   display: inline-block;
   padding-top: 5px; }
+
+.inv_total {
+  font-size: 1em;
+  color: #fff;
+  display: inline-block;
+  padding-top: 5px;
+  background: #b4b4b4;
+  padding: 4px 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  margin-left: 4px; }
 
 .inv_delete {
   position: absolute;
