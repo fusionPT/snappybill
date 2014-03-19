@@ -88,7 +88,7 @@
     	
     		<table id="adress-details" width="100%" border="0" cellspacing="0" cellpadding="0">
 			  <tr>
-			    <td class="adress-title" width="50%">.'$from_title.'</td>
+			    <td class="adress-title" width="50%">'.$from_title.'</td>
 			    <td class="adress-title" width="50%">Factura para:</td>
 			  </tr>
 			  <tr>
