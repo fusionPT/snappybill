@@ -5,6 +5,9 @@
 	$fecha = $_POST['date'];
 
 	$imagen = $_POST['image'];
+	
+	$from_title = $_POST['hidden-from'];
+	
 	$nombre = $_POST['name'];
 	$email = $_POST['email'];
 	$tel = $_POST['tel'];
@@ -24,7 +27,7 @@
 	//$cantidad = $_POST['qty'];
 	//$precio = $_POST['price'];
 	
-	$userfrom = $_POST['user_from'];
+	$userfrom = $_POST['userfrom'];
 	
 	$subtotal = $_POST['subtotal'];
 	$impuesto1 = $_POST['totaliva'];
@@ -85,7 +88,7 @@
     	
     		<table id="adress-details" width="100%" border="0" cellspacing="0" cellpadding="0">
 			  <tr>
-			    <td class="adress-title" width="50%">.'.$userfrom.'</td>
+			    <td class="adress-title" width="50%">.'$from_title.'</td>
 			    <td class="adress-title" width="50%">Factura para:</td>
 			  </tr>
 			  <tr>

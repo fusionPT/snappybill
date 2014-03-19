@@ -2,13 +2,14 @@
 
 <language>
 	<info>
+		<tag>Billing. Simple. Free.</tag>
 		<invoice-title>Invoice</invoice-title>
 		<number>Invoice Number</number>
 		<date>Date</date>
 		<from-title>From:</from-title>
 		<from>Name, address...</from>
 		<to-title>To:</to-title>
-		<to>To:</to>
+		<to>Name, address2...</to>
 	</info>
 	<items>
 		<description>Description</description>

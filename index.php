@@ -61,6 +61,7 @@
     	
     		<fieldset id="from">
     		<h3>Factura de:</h3>
+    			<input type="hidden" name="hidden-from" value=0>
 				<input type="text" id="name" name="name" placeholder="Nombre, dirección, NIF..."/><br />
 				<input type="text" id="email" name="email" placeholder=""/><br />
 				<input type="text" id="tel" name="tel" placeholder=""/><br />
@@ -85,9 +86,9 @@
    						<tr>
    							
    							<th class="description">Descripci&oacute;n</th>
-   							<th>Cant.</th>
-   							<th>Coste</th>
-   							<th>Precio</th>
+   							<th class="qty">Cant.</th>
+   							<th class="cost">Coste</th>
+   							<th class="price">Precio</th>
    							
    						</tr>
    					</thead>

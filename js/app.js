@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var dataStorage = {};
 	//Variables
 	var changes_made = false;
-	var lang="";
+	var lang="espanol";
 	
 	var quantity = 0,
 		cost = 0,
@@ -23,10 +23,10 @@ $(document).ready(function(){
 	//Cuando clica en descargar
 	$( "#descargar" ).click(function() {
 		row_html = $("#invoice-table tbody").html();
+		from_hidden = $("#from h3").text();
+		
 		$(".html-hidden").val(row_html);
-		
-		
-			
+		$("input[name='hidden-from']").val(from_hidden);
         return true; // return false to cancel form action
         
 	});
@@ -269,6 +269,7 @@ var	total_taxes = 0;
 		//Valor del dropdown de idioma
 		invoice.language = $("#language").val();
 		
+		
 		if (!invoice.invoice_num) {
 			//alert('Tienes de indicar un numero de factura');
 			//Show alert inline
@@ -280,11 +281,15 @@ var	total_taxes = 0;
 		invoice.client.name = $( "#cname" ).val();
 		invoice.client.email = $( "#cemail" ).val();
 		invoice.client.tel = $( "#ctel" ).val();
+		invoice.client.to = $("#billto h3").text();
+		
+		
 	    
 		invoice.user = {};
 		invoice.user.name = $( "#name" ).val();
 		invoice.user.email = $( "#email" ).val();
 		invoice.user.tel = $( "#tel" ).val();
+		invoice.user.from = $("#from h3").text();
 		
 	    invoice.taxes = [];
 		$('.added_tax').each(function(key, element) {
@@ -338,10 +343,12 @@ var	total_taxes = 0;
     	$( "#name" ).val(invoice.user.name);
     	$( "#email" ).val(invoice.user.email);
     	$( "#tel" ).val(invoice.user.tel);
+    	$( "#from h3" ).text(invoice.user.from);
 		
 		$( "#cname" ).val(invoice.client.name);
     	$( "#cemail" ).val(invoice.client.email);
     	$( "#ctel" ).val(invoice.client.tel);
+    	$( "#billto h3" ).text(invoice.client.to);
 		
 	    $( "#inv" ).val(invoice.invoice_num);
 	    $("#invoice-notas").val(invoice.notas);
@@ -470,11 +477,40 @@ var	total_taxes = 0;
 				var invoice_number = $(this).find('number').text();
 				var from_title = $(this).find('from-title').text();
 				var to_title = $(this).find('to-title').text();
+				var from = $(this).find('from').text();
+				var to = $(this).find('to').text();
+				var description_title = $(this).find('description').text();
+				var tag_title = $(this).find('tag').text();
+				
 				$("input[name='invoice-title']").val(invoice_title);
 				$("input[name='invoice-number']").attr("placeholder",invoice_number);
 				$("#from h3").text(from_title);
 				$("#billto h3").text(to_title);
+				$("input[name='name']").attr("placeholder",from);
+				$("input[name='cname']").attr("placeholder",to);
+				$(".top h2").text(tag_title);
+				
 			});
+			
+			$(xml).find('items').each(function(){
+				
+				var description_title = $(this).find('description').text();
+				var qty_title = $(this).find('qty').text();
+				var cost_title = $(this).find('cost').text();
+				var price_title = $(this).find('price').text();
+				var row_content = $(this).find('row').text();
+				var add_row_title = $(this).find('add').text();
+				var add_tax_title = $(this).find('addtax').text();
+				
+				$("#invoice-table th.description").text(description_title);
+				$("#invoice-table th.qty").text(qty_title);
+				$("#invoice-table th.cost").text(cost_title);
+				$("#invoice-table th.price").text(price_title);
+				$("input.description").attr("placeholder",row_content);
+				$(".add-row").text(add_row_title);
+				$(".add_tax").text(add_tax_title);
+			});
+			
 			$(xml).find('sidebar').each(function(){
 				
 				var btn_new = $(this).find('new').text();
