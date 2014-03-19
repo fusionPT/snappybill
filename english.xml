@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<language>
+	<info>
+		<invoice-title>Invoice</invoice-title>
+		<number>Invoice Number</number>
+		<date>Date</date>
+		<from-title>From:</from-title>
+		<from>Name, address...</from>
+		<to-title>To:</to-title>
+		<to>To:</to>
+	</info>
+	<items>
+		<description>Description</description>
+		<qty>Qty</qty>
+		<cost>Cost</cost>
+		<price>Price</price>
+		<row>Ex. Website</row>
+		<add>+ Add row</add>
+		<subtotal>Subtotal</subtotal>
+		<addtax>+ Add Tax</addtax>
+		<total>Total</total>
+		<notes>Notes</notes>
+	</items>
+	<sidebar>
+		<new>New</new>
+		<download>Download</download>
+		<save>Save</save>
+		<last>Last invoices</last>
+	</sidebar>
+</language>
+
+	

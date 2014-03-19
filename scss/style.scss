@@ -3,6 +3,7 @@
 $bg_color: #f6f6f6;
 $link_color: #2c79ec;
 $alert_color: #b55d49;
+$text-color: #404040;
 
 /* General Rules */
 
@@ -13,7 +14,7 @@ $alert_color: #b55d49;
 body {
 	font-family: 'Open Sans', "Helvetica", sans-serif;
 	font-weight: normal;
-	color: #404040;
+	color: $text-color;
 	background: $bg_color;
 	height: 100%;
 	font-size: 14px;
@@ -356,15 +357,16 @@ textarea {
 	margin-bottom: 10px;
 	margin-top: 20px;
 	hgroup {
-		
+		float: left;
 		overflow: hidden;
 		h2 {
 			font-size: 1em;
-			float: right;
+			float: left;
 			line-height: 20px;
 			padding-left: 10px;
 		}
 	}
+	
 }
 
 ul.menu {
@@ -372,6 +374,27 @@ ul.menu {
 	li {
 		display: inline-block;
 	}
+}
+
+select {
+	float: right;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+	background: #fff url(../images/arrow-down.png) no-repeat 90px 9px;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+	width: 115px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 1em;
+	color: $text-color;
+	margin-right: 0;
+	text-align: left;
 }
  
 /* SIDEBAR */

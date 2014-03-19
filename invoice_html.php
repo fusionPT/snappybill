@@ -24,6 +24,7 @@
 	//$cantidad = $_POST['qty'];
 	//$precio = $_POST['price'];
 	
+	$userfrom = $_POST['user_from'];
 	
 	$subtotal = $_POST['subtotal'];
 	$impuesto1 = $_POST['totaliva'];
@@ -84,7 +85,7 @@
     	
     		<table id="adress-details" width="100%" border="0" cellspacing="0" cellpadding="0">
 			  <tr>
-			    <td class="adress-title" width="50%">Factura de:</td>
+			    <td class="adress-title" width="50%">.'.$userfrom.'</td>
 			    <td class="adress-title" width="50%">Factura para:</td>
 			  </tr>
 			  <tr>
