@@ -35,12 +35,15 @@
 				<h1>Facturarapida.net</h1>
 				<h2>Facturación. Simples. Gratis.</h2>
 			</hgroup>
-			
-			
+			<select id="language">
+				<option value="espanol">Español</option>
+				<option value="english">English</option>
+				<option value="portugues">Português</option>
+			</select>
+
 		</div>
 		
   <div id="page-container">
-  
   <form id="invoice" method="POST" action="invoice_html.php"><!-- Invoice form -->
   <div id="main" role="main">
     <header>
@@ -48,7 +51,7 @@
 		<input class="title" type="text" name="invoice-title" placeholder="Factura" value="Factura" id='invoice-title'/>
 		
 		<fieldset id="invoice-num">
-			<input type="text" name="invoice" placeholder="Numero de factura" id="inv"/><br />
+			<input type="text" name="invoice-number" placeholder="Numero de factura" id="inv"/><br />
 			<input type="text" name="date" placeholder="<?php echo date('d/m/Y');?>" value="<?php echo date('d/m/Y');?>" id='invoice-date'/><br />
 		</fieldset>
     </header>
