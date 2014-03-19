@@ -1,10 +1,7 @@
 $(document).ready(function(){
-
 	var dataStorage = {};
 	//Variables
 	var changes_made = false;
-	var lang="";
-	
 	var quantity = 0,
 		cost = 0,
 		price = 0,
@@ -24,9 +21,6 @@ $(document).ready(function(){
 	$( "#descargar" ).click(function() {
 		row_html = $("#invoice-table tbody").html();
 		$(".html-hidden").val(row_html);
-		
-		
-			
         return true; // return false to cancel form action
         
 	});
@@ -196,7 +190,6 @@ $(document).ready(function(){
 	//Calculate
 	$(document).on("change", "div input", function(e) {
 		changes_made = true;
-		
 		if(e.target.className !== "description") {
 			updateTotal();
 		}			
@@ -266,8 +259,6 @@ var	total_taxes = 0;
 		invoice.title = $("#invoice-title").val();
 		invoice.date = $('#invoice-date').val();
 		invoice.invoice_num = $('#inv').val();
-		//Valor del dropdown de idioma
-		invoice.language = $("#language").val();
 		
 		if (!invoice.invoice_num) {
 			//alert('Tienes de indicar un numero de factura');
@@ -319,15 +310,9 @@ var	total_taxes = 0;
 	
     function loadInvoice (invoice_num) {
 		
-		
-		
 		if (!checkChanges() || confirm('No fue grabado, quieres continuar?')) {
 			resetForm();
-	
-		} else {
-			return false;
-			
-		}
+		} 
 		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
 			//alert('No existe esa factura');
 			showAlert("No existe esa factura");
@@ -346,8 +331,6 @@ var	total_taxes = 0;
 	    $( "#inv" ).val(invoice.invoice_num);
 	    $("#invoice-notas").val(invoice.notas);
 	    $('#invoice-title').val(invoice.title);
-		//Language
-		$('#language option[value="' + invoice.language + '"]').prop('selected',true);
 		
 		var keys = Object.keys(invoice.items);
 		for (i in keys) {
@@ -452,55 +435,12 @@ var	total_taxes = 0;
 		$('#invoices').html(invoiceshtml);
    }
    
-   //
-   //Handling the dropdown
-   //
-   
-   function changeLanguage(lang) {
-      
-	   $.ajax({
-		type: "GET",
-		url: lang,
-		dataType: "xml",
-		success: function(xml) {
-			
-			$(xml).find('info').each(function(){
-				
-				var invoice_title = $(this).find('invoice-title').text();
-				var invoice_number = $(this).find('number').text();
-				var from_title = $(this).find('from-title').text();
-				var to_title = $(this).find('to-title').text();
-				$("input[name='invoice-title']").val(invoice_title);
-				$("input[name='invoice-number']").attr("placeholder",invoice_number);
-				$("#from h3").text(from_title);
-				$("#billto h3").text(to_title);
-			});
-			$(xml).find('sidebar').each(function(){
-				
-				var btn_new = $(this).find('new').text();
-				var btn_download = $(this).find('download').text();
-				var btn_save = $(this).find('save').text();
-				$("#create_new").val(btn_new);
-				$("#descargar").val(btn_download);
-				$("#guardar").val(btn_save);
-			});
-		}
-	});
-	
+   function changeCurrency (curr) {
+	   
    }
-   
-   function selectLang () {
-	   //select
-   		var lang = $("#language").val() + ".xml";
-   		
-   		changeLanguage(lang);
-
-   }
-   $( "select" ).change( selectLang );
    
    loadLocalStorage();
    resetForm();
    displayInvoices();
-   changeLanguage(english);
    
 });
