@@ -4,8 +4,8 @@ $(document).ready(function(){
 	
 	//Variables
 	var changes_made = false;
-	var lang="espanol";
 	
+	var lang = '';
 	var quantity = 0,
 		cost = 0,
 		price = 0,
@@ -51,8 +51,10 @@ $(document).ready(function(){
 	
 	$("#create_new").click(function(e) {
 		if (!checkChanges() || confirm('There are unsaved changes, do you want to proceed?')) {
+		$("#invoice").fadeOut( transition, function() {
 			resetForm();
 			setInvoiceNum(getLastInvoiceNum()+1);
+		}).fadeIn(transition);
 		} 
 		return false;
 	});
@@ -280,9 +282,21 @@ var	total_taxes = 0;
 		invoice.title = $("#invoice-title").val();
 		invoice.date = $('#invoice-date').val();
 		invoice.invoice_num = $('#inv').val();
+		
+		invoice.th_number = $("input[name='hidden-number']").val();
+		invoice.th_date = $("input[name='hidden-date']").val();
+		
 		//Valor del dropdown de idioma
 		invoice.language = $("#language").val();
 		invoice.invoice_total = $("td.total").text();
+		
+		invoice.th_description = $("th.description").text();
+		invoice.th_qty = $("th.qty").text();
+		invoice.th_cost = $("th.cost").text();
+		invoice.th_price = $("th.price").text();
+		invoice.btn_addrow = $(".add-row").text();
+		invoice.btn_addtax = $(".add_tax").text();
+		invoice.notes = $("#pay h3").text();
 		
 		if (!invoice.invoice_num) {
 			//alert('Tienes de indicar un numero de factura');
@@ -297,11 +311,7 @@ var	total_taxes = 0;
 		invoice.client.tel = $( "#ctel" ).val();
 		invoice.client.to = $("#billto h3").text();
 		
-		/*
-			
-			NEED TO: save table title labels ("description, cost...") into storage.
-			
-		*/
+		
 	    
 		invoice.user = {};
 		invoice.user.name = $( "#name" ).val();
@@ -365,6 +375,9 @@ var	total_taxes = 0;
     	$( "#email" ).val(invoice.user.email);
     	$( "#tel" ).val(invoice.user.tel);
     	$( "#from h3" ).text(invoice.user.from);
+    	
+    	$("input[name='hidden-number']").val(invoice.th_number);
+		$("input[name='hidden-date']").val(invoice.th_date);
 		
 		$( "#cname" ).val(invoice.client.name);
     	$( "#cemail" ).val(invoice.client.email);
@@ -375,6 +388,14 @@ var	total_taxes = 0;
 	    $("#invoice-notas").val(invoice.notas);
 	    $('#invoice-title').val(invoice.title);
 	    $("td.total").text(invoice.total);
+	    
+	    $("th.description").text(invoice.th_description);
+		$("th.qty").text(invoice.th_qty);
+		$("th.cost").text(invoice.th_cost);
+		$("th.price").text(invoice.th_price);
+		$(".add-row").text(invoice.btn_addrow);
+		$(".add_tax").text(invoice.btn_addtax);
+		$("#pay h3").text(invoice.notes);
 	   
 		//Language
 		$('#language option[value="' + invoice.language + '"]').prop('selected',true);
@@ -495,6 +516,9 @@ var reverse;
 				var to = $(this).find('to').text();
 				var description_title = $(this).find('description').text();
 				var tag_title = $(this).find('tag').text();
+				var number_title = $(this).find('number-title').text();
+				var date_title = $(this).find('date-title').text();
+				
 				
 				$("input[name='invoice-title']").val(invoice_title);
 				$("input[name='invoice-number']").attr("placeholder",invoice_number);
@@ -503,6 +527,8 @@ var reverse;
 				$("input[name='name']").attr("placeholder",from);
 				$("input[name='cname']").attr("placeholder",to);
 				$(".top h2").text(tag_title);
+				$("input[name='hidden-number']").val(number_title);
+				$("input[name='hidden-date']").val(date_title);
 				
 			});
 			
@@ -515,6 +541,7 @@ var reverse;
 				var row_content = $(this).find('row').text();
 				var add_row_title = $(this).find('add').text();
 				var add_tax_title = $(this).find('addtax').text();
+				var notes_title = $(this).find('notes').text();
 				
 				$("#invoice-table th.description").text(description_title);
 				$("#invoice-table th.qty").text(qty_title);
@@ -523,6 +550,7 @@ var reverse;
 				$("input.description").attr("placeholder",row_content);
 				$(".add-row").text(add_row_title);
 				$(".add_tax").text(add_tax_title);
+				$("#pay h3").text(notes_title);
 			});
 			
 			$(xml).find('sidebar').each(function(){
@@ -538,7 +566,7 @@ var reverse;
 	});
 	
    }
-   var lang = '';
+   
    function selectLang () {
 	   //select
    		lang = $("#language").val() + ".xml";
@@ -549,6 +577,7 @@ var reverse;
    		}).fadeIn(transition);
 
    }
+   $('#language option[value="' + lang + '"]').prop('selected',true);
    $( "select" ).change( selectLang );
    
    
@@ -556,6 +585,6 @@ var reverse;
    loadLocalStorage();
    resetForm();
    displayInvoices();
-   changeLanguage(english);
+   changeLanguage(lang);
    
 });

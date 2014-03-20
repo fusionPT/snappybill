@@ -53,6 +53,8 @@
 		<fieldset id="invoice-num">
 			<input type="text" name="invoice-number" placeholder="Numero de factura" id="inv"/><br />
 			<input type="text" name="date" placeholder="<?php echo date('d/m/Y');?>" value="<?php echo date('d/m/Y');?>" id='invoice-date'/><br />
+            <input type="hidden" name="hidden-number" value="Invoice nº">
+            <input type="hidden" name="hidden-date" value="Date">
 		</fieldset>
     </header>
     

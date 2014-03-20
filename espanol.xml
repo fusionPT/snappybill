@@ -6,6 +6,8 @@
 		<invoice-title>Facturasxx</invoice-title>
 		<number>Numero de facturas</number>
 		<date>Fecha</date>
+		<number-title>Factura nº</number-title>
+		<date-title>Fecha</date-title>
 		<from-title>De:</from-title>
 		<from>Nombre, dirección, NIF...</from>
 		<to-title>Para:</to-title>

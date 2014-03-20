@@ -3,6 +3,8 @@
 	$factura = $_POST['invoice-title'];
 	$invoice_num = $_POST['invoice-number'];
 	$fecha = $_POST['date'];
+	$inv_num_title = $_POST['hidden-number'];
+	$inv_date_title = $_POST['hidden-date'];
 
 	$imagen = $_POST['image'];
 	
@@ -84,8 +86,8 @@
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td class="inv-title" width="50%">'.$factura.'</td>
-				<td class="inv-number"><span>Numero: </span>'.$invoice_num.'<br />
-				<span>Fecha: </span>'.$fecha.'
+				<td class="inv-number"><span>'.$inv_num_title.': </span>'.$invoice_num.'<br />
+				<span>'.$inv_date_title.': </span>'.$fecha.'
 				</td>
 			</tr>
 			
