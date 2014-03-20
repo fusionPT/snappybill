@@ -461,6 +461,7 @@ var reverse;
 		
    }
    
+   //Display Invoices
    
    function displayInvoices() {
 		var invoiceshtml = createInvoiceMenu(dataStorage.invoices);
