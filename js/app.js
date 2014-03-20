@@ -18,11 +18,6 @@ $(document).ready(function(){
 	//Creates array
 	var items = {};
 	
-	
-	//showInputLines();
-	
-	//Loads saved invoice data
-	//loadInvoice();
 	//Cuando clica en descargar
 	$( "#descargar" ).click(function() {
 		row_html = $("#invoice-table tbody").html();
