@@ -334,6 +334,11 @@ select {
   left: -17px;
   cursor: pointer; }
 
+.blank {
+  color: #b4b4b4;
+  font-size: 1em;
+  line-height: 1.5em; }
+
 input[type="submit"], input[type="button"] {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;

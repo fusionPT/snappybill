@@ -179,7 +179,7 @@
 			
 			<h2>Ultimas facturas</h2>
 			<div id="invoices">
-			<p>No hay facturas guardadas aun.</p>
+				
 			</div>
     	</div><!-- End of sidebar -->
 
