@@ -12,7 +12,8 @@ $(document).ready(function(){
 		totaliva = 0,
 		totalirpf = 0,
 		currencySign = ["€","$"],
-		currentCurrency = currencySign[0];
+		currentCurrency = currencySign[0],
+		transition = "fast";
 		
 	//Creates array
 	var items = {};
@@ -26,9 +27,25 @@ $(document).ready(function(){
 	$( "#descargar" ).click(function() {
 		row_html = $("#invoice-table tbody").html();
 		from_hidden = $("#from h3").text();
+		to_hidden = $("#billto h3").text();
+		
+		description_hidden = $("th.description").text();
+		qty_hidden = $("th.qty").text();
+		cost_hidden = $("th.cost").text();
+		price_hidden = $("th.price").text();
+		
+		notes_hidden = $('#pay h3').text();
 		
 		$(".html-hidden").val(row_html);
 		$("input[name='hidden-from']").val(from_hidden);
+		$("input[name='hidden-to']").val(to_hidden);
+		
+		$("input[name='hidden-description']").val(description_hidden);
+		$("input[name='hidden-qty']").val(qty_hidden);
+		$("input[name='hidden-cost']").val(cost_hidden);
+		$("input[name='hidden-price']").val(price_hidden);
+		
+		$("input[name='hidden-notes']").val(notes_hidden);
         return true; // return false to cancel form action
         
 	});
@@ -135,7 +152,7 @@ $(document).ready(function(){
 		template = template.replace('{DESCRIPTION}',(item.description).replace("'","\\'"));
 		$("#invoice-table > tbody > tr.row:last").after(template);
 		
-		console.log("Rows: " + numRows);
+		
 		
 	}
 	
@@ -327,7 +344,9 @@ var	total_taxes = 0;
 	
     function loadInvoice (invoice_num) {
 		
-		
+		$("#invoice").fadeOut( transition, function() {
+   			
+   		
 		
 		if (!checkChanges() || confirm('No fue grabado, quieres continuar?')) {
 			resetForm();
@@ -357,6 +376,7 @@ var	total_taxes = 0;
 	    $("#invoice-notas").val(invoice.notas);
 	    $('#invoice-title').val(invoice.title);
 	    $("td.total").text(invoice.total);
+	   
 		//Language
 		$('#language option[value="' + invoice.language + '"]').prop('selected',true);
 		
@@ -373,7 +393,9 @@ var	total_taxes = 0;
 				addTax(invoice.taxes[i]);
 			}
 		} 
-		updateTotal();
+		
+   		updateTotal();
+   		}).fadeIn(transition);
     }
 	
 	//Alert function
@@ -394,29 +416,8 @@ var	total_taxes = 0;
 	
 	}
 	
-	//Controls invoice animations
 	
-	function showInputLines(){
-		$("#page-container").find("input").css("border-color","#fff");
-		
-		$("#page-container").find("a.add-row").hide();
-		$("#page-container").find("a.add_tax").hide();
-				
-		$("#page-container").on("mouseenter", function(e) {
-				
-				$(this).find("input").css("border-bottom","1px solid #ccc");
-				$(this).find("a.add-row").show();
-				$(this).find("a.add_tax").show();
 
-		});
-		$("#page-container").on("mouseleave", function(e) {
-				
-				$(this).find("input").css("border-color","#fff");
-				$(this).find("a.add-row").hide();
-				$(this).find("a.add_tax").hide();
-		});
-		
-	}
 	
     function deleteInvoice(invoice_num) {
 		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
@@ -538,19 +539,20 @@ var reverse;
 	});
 	
    }
-   
+   var lang = '';
    function selectLang () {
 	   //select
-   		var lang = $("#language").val() + ".xml";
+   		lang = $("#language").val() + ".xml";
    		
-   		changeLanguage(lang);
+   	
+   		$("#invoice").fadeOut( transition, function() {
+   			changeLanguage(lang);
+   		}).fadeIn(transition);
 
    }
    $( "select" ).change( selectLang );
    
-   function listInvoice() {
-	   $("#invoice-list").html('')
-   }
+   
    
    loadLocalStorage();
    resetForm();
