@@ -302,7 +302,11 @@ var	total_taxes = 0;
 		invoice.client.tel = $( "#ctel" ).val();
 		invoice.client.to = $("#billto h3").text();
 		
-		
+		/*
+			
+			NEED TO: save table title labels ("description, cost...") into storage.
+			
+		*/
 	    
 		invoice.user = {};
 		invoice.user.name = $( "#name" ).val();
