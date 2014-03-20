@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<language>
+	<info>
+		<tag>Faturação. Simples. Grátis.</tag>
+		<invoice-title>Fatura</invoice-title>
+		<number>Número de fatura</number>
+		<date>Data</date>
+		<number-title>Fatura nº</number-title>
+		<date-title>Data</date-title>
+		<from-title>De:</from-title>
+		<from>Nome, direção, NIF...</from>
+		<to-title>Para:</to-title>
+		<to>Nome, direção, NIF...</to>
+	</info>
+	<items>
+		<description>Descrição</description>
+		<qty>Quantidad</qty>
+		<cost>Preço Und.</cost>
+		<price>Preço</price>
+		<row>Ex. Site</row>
+		<add>+ Nova linha</add>
+		<subtotal>Subtotal</subtotal>
+		<addtax>+ Novo imposto</addtax>
+		<total>Total</total>
+		<notes>Notas</notes>
+	</items>
+	<sidebar>
+		<new>Nova</new>
+		<download>Descarregar</download>
+		<save>Guardar</save>
+		<last>Últimas facturas</last>
+	</sidebar>
+</language>
+
+	
