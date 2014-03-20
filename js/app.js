@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
 	var dataStorage = {};
-	
 	//Variables
 	var changes_made = false;
 	var lang="espanol";
@@ -16,7 +15,6 @@ $(document).ready(function(){
 		
 	//Creates array
 	var items = {};
-	
 	
 	//showInputLines();
 	
@@ -422,7 +420,6 @@ var	total_taxes = 0;
 		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
 			//alert('No existe esa factura');
 			showAlert("No existe esa factura");
-			
 			return false;
 		}
 		if (confirm('Quieres borrar la factura '+invoice_num+"?")) {
@@ -439,37 +436,48 @@ var	total_taxes = 0;
 			dataStorage = {};
 			dataStorage.invoices = {};
 			saveLocalStorage();
-		} 
+		}
 	}
 	
 	//////////// Invoices sidebar
-var reverse;
+
    function createInvoiceMenu(invoices) {
 		var html = '<ul>';
-			reverse = [];
+		var reverse = []
 		for (var invoice in invoices) {
 			reverse.push(invoice);
 		}
 		reverse.reverse();
 		for (var invoice in reverse) {
-			console.log(reverse[invoice]);
 			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].invoice_num+"</span><span class='inv_total'>"+invoices[reverse[invoice]].invoice_total+"</span><br/><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
 		}
 		html += "</ul>";
 		return html;
 		
+   }
+   
+   //////////// List invoices page
+   
+   function createInvoiceList(invoices) {
+		var html = '<ul>';
+		var reverse = []
+		for (var invoice in invoices) {
+			reverse.push(invoice);
+		}
+		reverse.reverse();
+		for (var invoice in reverse) {
+			html += "<li data-invoice-num='"+invoices[reverse[invoice]].invoice_num+"'><span class='inv_title'>"+invoices[reverse[invoice]].invoice_num+"</span><span class='inv_total'>"+invoices[reverse[invoice]].client.name+"</span><span class='inv_total'>"+invoices[reverse[invoice]].invoice_total+"</span><span class='inv_date'>"+invoices[reverse[invoice]].date+"</span><br/><span class='inv_delete delete-row'>Delete</span></li>";
+		}
+		html += "</ul>";
+		return html;
 		
    }
    
-   
    function displayInvoices() {
-		var invoiceshtml = createInvoiceMenu(dataStorage.invoices);
-		
-		if(reverse.length >= 1 ){
-			$('#invoices').hide().html(invoiceshtml).fadeIn('fast');
-		} else {
-			$('#invoices').hide().html("<p class='blank'>No hay facturas! Crea una nueva ahora.</p>").fadeIn('fast');
-		}
+		var invoiceshtml = createInvoiceMenu(dataStorage.invoices)
+		var invoiceslist = createInvoiceList(dataStorage.invoices)
+		$('#invoices').html(invoiceshtml);
+		$('#invoice-list').html(invoiceslist);
    }
    
    //
