@@ -22,7 +22,9 @@ function renderPDF($content_var){
 
 	if(isset($_POST['submit']))
 	{
-		$title = $_POST['invoice'];
+		$factura = $_POST['invoice-title'];
+		$invoice_num = $_POST['invoice-number'];
+		
 		$content = mb_convert_encoding($content_var, 'HTML-ENTITIES','UTF-8');
 		if(empty($content))
 		{
@@ -37,7 +39,7 @@ function renderPDF($content_var){
 			$dompdf = new DOMPDF();
 			$dompdf->load_html(utf8_decode($content));
 			$dompdf->render();
-			$dompdf->stream($title . '.pdf');
+			$dompdf->stream($factura .'-'.$invoice_num. '.pdf');
 			
 		}
 	}
