@@ -70,7 +70,6 @@
 		
 			<fieldset id="billto">
 			<h3>Facturar a:</h3>
-				<input type="hidden" name="hidden-to" value=0>
 				<input type="text" id='cname' name="cname" placeholder="Nombre, dirección, NIF..."/><br />
 				<input type="text" id='cemail' name="cemail" placeholder=""/><br />
 				<input type="text" id='ctel' name="ctel" placeholder=""/><br />
@@ -90,10 +89,7 @@
    							<th class="qty">Cant.</th>
    							<th class="cost">Coste</th>
    							<th class="price">Precio</th>
-   							<input type="hidden" name="hidden-description" value="-">
-   							<input type="hidden" name="hidden-qty" value="-">
-   							<input type="hidden" name="hidden-cost" value="-">
-   							<input type="hidden" name="hidden-price" value="-">
+   							
    						</tr>
    					</thead>
    					<tbody>
@@ -164,7 +160,6 @@
    		<div id="pay">
    			<h3>Notas</h3>
    			<textarea name="notas" id='invoice-notas'></textarea>
-   			<input type="hidden" name="hidden-notes" value="-">
    		</div>
 
     	</div><!--! end of #main -->
@@ -184,7 +179,7 @@
 			
 			<h2>Ultimas facturas</h2>
 			<div id="invoices">
-				
+			<p>No hay facturas guardadas aun.</p>
 			</div>
     	</div><!-- End of sidebar -->
 
@@ -207,7 +202,7 @@
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/app-ck.js"></script>
   
 
   
