@@ -36,8 +36,8 @@
 				<h2>Facturación. Simples. Gratis.</h2>
 			</hgroup>
 			<select id="language">
-				<option value="espanol">Español</option>
 				<option value="english">English</option>
+				<option value="espanol">Español</option>
 				<option value="portugues">Português</option>
 			</select>
 

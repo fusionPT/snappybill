@@ -566,7 +566,12 @@ var reverse;
 	});
 	
    }
+   var userLang = navigator.language || navigator.userLanguage; 
    
+	//$('#language option[value="' + userLang + '"]').prop('selected',true);
+	
+   lang = $("#language").val();
+  
    function selectLang () {
 	   //select
    		lang = $("#language").val() + ".xml";
@@ -586,5 +591,5 @@ var reverse;
    resetForm();
    displayInvoices();
    changeLanguage(lang);
-   
+   selectLang()
 });
