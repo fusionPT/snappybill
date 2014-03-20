@@ -1,20 +1,12 @@
 <?php 
 	/* Company details */
-	$factura = $_POST['invoice-title'];
-	$invoice_num = $_POST['invoice-number'];
+	$factura = $_POST['invoice'];
+	$invoice_title = $_POST['invoice-title'];
 	$fecha = $_POST['date'];
 
 	$imagen = $_POST['image'];
 	
 	$from_title = $_POST['hidden-from'];
-	$to_title = $_POST['hidden-to'];
-	
-	$description_title = $_POST['hidden-description'];
-	$qty_title = $_POST['hidden-qty'];
-	$cost_title = $_POST['hidden-cost'];
-	$price_title = $_POST['hidden-price'];
-	
-	$notes_title = $_POST['hidden-notes'];
 	
 	$nombre = $_POST['name'];
 	$email = $_POST['email'];
@@ -35,7 +27,7 @@
 	//$cantidad = $_POST['qty'];
 	//$precio = $_POST['price'];
 	
-	
+	$userfrom = $_POST['userfrom'];
 	
 	$subtotal = $_POST['subtotal'];
 	$impuesto1 = $_POST['totaliva'];
@@ -83,8 +75,8 @@
 		
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td class="inv-title" width="50%">'.$factura.'</td>
-				<td class="inv-number"><span>Numero: </span>'.$invoice_num.'<br />
+				<td class="inv-title" width="50%">'.$invoice_title.'</td>
+				<td class="inv-number"><span>Numero: </span>'.$factura.'<br />
 				<span>Fecha: </span>'.$fecha.'
 				</td>
 			</tr>
@@ -97,7 +89,7 @@
     		<table id="adress-details" width="100%" border="0" cellspacing="0" cellpadding="0">
 			  <tr>
 			    <td class="adress-title" width="50%">'.$from_title.'</td>
-			    <td class="adress-title" width="50%">'.$to_title.'</td>
+			    <td class="adress-title" width="50%">Factura para:</td>
 			  </tr>
 			  <tr>
 			    <td>'.$nombre.'</td>
@@ -122,10 +114,10 @@
    					<thead>
    						<tr>
    							
-   							<th class="description">'.$description_title.'</th>
-   							<th>'.$qty_title.'</th>
-   							<th>'.$cost_title.'</th>
-   							<th>'.$price_title.'</th>
+   							<th class="description">Descripci&oacute;n</th>
+   							<th>Cant.</th>
+   							<th>Coste</th>
+   							<th>Precio</th>
    							
    						</tr>
    					</thead>
@@ -153,7 +145,7 @@
    		</div>
    		
    		<div id="pay">
-   			<h3>'.$notes_title.'</h3>
+   			<h3>Notas</h3>
    			<p>'.$notas.'</p>
    		</div>
 
