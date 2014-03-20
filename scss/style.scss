@@ -66,7 +66,9 @@ a {
 		
 	 }
 }
-
+.noborder {
+	border: none;
+}
 
 /* TABLE */
 
@@ -85,7 +87,7 @@ table {
 			border-right: 1px solid #ccc;
 			padding-right: 20px;
 			&:last-child {
-				border-right: none;
+				border-right: none;;
 			}
 			&.description {
 				width: 60%;	
@@ -185,8 +187,9 @@ a.add-row, a.add_tax {
 a.add_tax {
 	position: absolute;
 	width: 140px;
-	right: 105px;
+	right: 122px;
 	bottom: 70px;
+	text-align: right;
 }
 
 #page-container {

@@ -91,7 +91,7 @@
    							<th class="description">Descripci&oacute;n</th>
    							<th class="qty">Cant.</th>
    							<th class="cost">Coste</th>
-   							<th class="price">Precio</th>
+   							<th class="price noborder">Precio</th>
    							<input type="hidden" name="hidden-description" value="-">
    							<input type="hidden" name="hidden-qty" value="-">
    							<input type="hidden" name="hidden-cost" value="-">
