@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<language>
+	<info>
+		<tag>Billing. Simple. Free.</tag>
+		<invoice-title>Invoice</invoice-title>
+		<number>Invoice Number</number>
+		<date>Date</date>
+		<number-title>Invoice nº</number-title>
+		<date-title>Date</date-title>
+		<from-title>From:</from-title>
+		<from>Name, address...</from>
+		<to-title>To:</to-title>
+		<to>Name, address2...</to>
+	</info>
+	<items>
+		<description>Description</description>
+		<qty>Qty</qty>
+		<cost>Cost</cost>
+		<price>Price</price>
+		<row>Ex. Website</row>
+		<add>+ Add row</add>
+		<subtotal>Subtotal</subtotal>
+		<addtax>+ Add Tax</addtax>
+		<total>Total</total>
+		<notes>Notes</notes>
+	</items>
+	<sidebar>
+		<new>New</new>
+		<download>Download</download>
+		<save>Save</save>
+		<last>Last invoices</last>
+	</sidebar>
+</language>
+
+	

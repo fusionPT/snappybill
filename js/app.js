@@ -11,7 +11,7 @@ $(document).ready(function(){
 		price = 0,
 		totaliva = 0,
 		totalirpf = 0,
-		currencySign = ["€","$"],
+		currencySign = ["$","€","£"],
 		currentCurrency = currencySign[0],
 		transition = "fast";
 		
@@ -562,6 +562,7 @@ var reverse;
 				$("#descargar").val(btn_download);
 				$("#guardar").val(btn_save);
 			});
+
 		}
 	});
 	
@@ -574,22 +575,47 @@ var reverse;
   
    function selectLang () {
 	   //select
+
    		lang = $("#language").val() + ".xml";
+   		changeCurrency();
    		
-   	
    		$("#invoice").fadeOut( transition, function() {
-   			changeLanguage(lang);
+
+				changeLanguage(lang);
+				
+				
    		}).fadeIn(transition);
+		
 
    }
    $('#language option[value="' + lang + '"]').prop('selected',true);
    $( "select" ).change( selectLang );
    
-   
+
+
+   function changeCurrency () {
+   		
+			
+			if(lang=="english.xml") {
+				currentCurrency=currencySign[0];
+			}
+			if(lang=="englishUK.xml") {
+				currentCurrency=currencySign[2];
+			}
+			if(lang=="espanol.xml") {
+				currentCurrency=currencySign[1];
+			}
+			if(lang=="portugues.xml") {
+				currentCurrency=currencySign[1];
+			}
+			
+			updateTotal();
+				
+   }
    
    loadLocalStorage();
    resetForm();
    displayInvoices();
    changeLanguage(lang);
-   selectLang()
+   changeCurrency();
 });
