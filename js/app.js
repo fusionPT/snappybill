@@ -232,7 +232,7 @@ $(document).ready(function(){
 			quantity = $(this).find("input.cantidad").val();
 			cost = $(this).find("input.coste").val();
 			price = +cost * +quantity;
-			$(this).find(".precio").text(currentCurrency+price);
+			$(this).find(".precio").text(price);
 			$(this).find(".precio-hidden").val(price);
 			subtotal += price;
 			
@@ -245,7 +245,7 @@ var	total_taxes = 0;
 			total_taxes += tax;
 			$('.tax_total-hidden').eq(key).val(tax);
 			$('.tax_total').eq(key).html(
-				currentCurrency + tax
+				tax
 			);
 		});
 		
@@ -253,7 +253,7 @@ var	total_taxes = 0;
 		//totalirpf = roundToTwo(subtotal*irpf);
 		total = subtotal + total_taxes;
 		
-		$(".subtotal").text(currentCurrency + subtotal);
+		$(".subtotal").text(subtotal);
 		//$(".totaliva").text(totaliva);
 		//$(".totalirpf").text(totalirpf);
 		$(".total").text(currentCurrency + roundToTwo(total));
@@ -289,6 +289,7 @@ var	total_taxes = 0;
 		//Valor del dropdown de idioma
 		invoice.language = $("#language").val();
 		invoice.invoice_total = $("td.total").text();
+		invoice.invoice_currency = currentCurrency;
 		
 		invoice.th_description = $("th.description").text();
 		invoice.th_qty = $("th.qty").text();
@@ -387,7 +388,7 @@ var	total_taxes = 0;
 	    $( "#inv" ).val(invoice.invoice_num);
 	    $("#invoice-notas").val(invoice.notas);
 	    $('#invoice-title').val(invoice.title);
-	    $("td.total").text(invoice.total);
+	    $("td.total").text(invoice.invoice_total);
 	    
 	    $("th.description").text(invoice.th_description);
 		$("th.qty").text(invoice.th_qty);
@@ -415,6 +416,9 @@ var	total_taxes = 0;
 		} 
 		
    		updateTotal();
+   		currentCurrency = invoice.invoice_currency;
+   		 $("td.total").text(invoice.invoice_total);
+   		//alert(invoice.invoice_total);
    		}).fadeIn(transition);
     }
 	
@@ -608,9 +612,9 @@ var reverse;
 			if(lang=="portugues.xml") {
 				currentCurrency=currencySign[1];
 			}
-			
 			updateTotal();
-				
+			
+			
    }
    
    loadLocalStorage();
