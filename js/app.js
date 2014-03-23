@@ -28,7 +28,7 @@ $(document).ready(function(){
 		qty_hidden = $("th.qty").text();
 		cost_hidden = $("th.cost").text();
 		price_hidden = $("th.price").text();
-		
+		total_hidden = $("td.total").text();
 		notes_hidden = $('#pay h3').text();
 		
 		$(".html-hidden").val(row_html);
@@ -41,6 +41,9 @@ $(document).ready(function(){
 		$("input[name='hidden-price']").val(price_hidden);
 		
 		$("input[name='hidden-notes']").val(notes_hidden);
+		$("input[name='total-hidden']").val(total_hidden);
+		
+		
         return true; // return false to cancel form action
         
 	});

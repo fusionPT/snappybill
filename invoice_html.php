@@ -42,7 +42,7 @@
 	$subtotal = $_POST['subtotal'];
 	$impuesto1 = $_POST['totaliva'];
 	$impuesto2 = $_POST['totalirpf'];
-	$total = $_POST['total'];
+	$total = $_POST['total-hidden'];
 	
 	$notas = $_POST['notas'];
 	
@@ -56,7 +56,7 @@
 	$taxes = '';
 	foreach($_POST['tax_names'] as $key => $taxname) {
 	
-	$taxes .=  '<tr>
+	$taxes .= '<tr>
    						  <td class="noborder">&nbsp;</td>
    						  <td class="tax">'.$taxname.'</td>
    						  <td><span class="tax"></span><input class="iva" type="text" name="tax1" placeholder="IVA" value="'.$_POST['tax_values'][$key].'" size="2"/></td>

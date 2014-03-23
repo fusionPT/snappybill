@@ -155,7 +155,7 @@
    						  <td class="noborder">&nbsp;</td>
    						  <td colspan="2" class="noborder"><strong>TOTAL</strong></td>
    							<td class="total">0</td>
-   							<input class="total-hidden" type="hidden" name="total" value="0">
+   							<input class="total-hidden" type="hidden" name="total-hidden" value="0">
    							<input class="html-hidden" type="hidden" name="html" value="0">
    						</tr>
    					</tfoot>
