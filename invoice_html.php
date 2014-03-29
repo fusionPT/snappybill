@@ -55,15 +55,18 @@
 	/* HTML Template */
 	$taxes = '';
 	
-	foreach($_POST['tax_names'] as $key => $taxname) {
+	if(isset($_POST['tax_names'])) {
+
+		foreach($_POST['tax_names'] as $key => $taxname) {
 	
-	$taxes .= '<tr>
+		$taxes .= '<tr>
    						  <td class="noborder">&nbsp;</td>
    						  <td class="tax">'.$taxname.'</td>
    						  <td><span class="tax"></span><input class="iva" type="text" name="tax1" placeholder="IVA" value="'.$_POST['tax_values'][$key].'" size="2"/></td>
    							<td>'.$_POST['tax_total'][$key].'</td>
    						</tr>';
 	
+		}
 	}
 	renderPDF('
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
