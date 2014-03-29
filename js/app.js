@@ -73,16 +73,7 @@ $(document).ready(function(){
 	
 	function setDefaultTaxes() {
 		$("#invoice-table tr.added_tax").remove();
-		tax = {
-				name: 'IVA',
-				value: '21'
-		}
-		addTax(tax);
-		tax = {
-				name: 'IRPF',
-				value: '-21'
-		}
-		addTax(tax);
+		
 	}
 	
 	function resetForm() {
