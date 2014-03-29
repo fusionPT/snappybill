@@ -621,10 +621,10 @@ var reverse;
    }
 
    $("#invoice").mouseenter( function() {
-   	$('input[type="text"]').css("border-color","#e6e6e6");
+   	//$('input[type="text"]').css("border-color","#e6e6e6");
    	$('#pay textarea').slideDown("fast");
    }).mouseleave( function() {
-   	$('input[type="text"]').css("border-color","#fff");
+   	//$('input[type="text"]').css("border-color","#fff");
    	if($("#pay textarea").val() == ""){
    	$('#pay textarea').slideUp("fast");
    	}
