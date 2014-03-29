@@ -12,8 +12,8 @@ $(document).ready(function(){
 		totaliva = 0,
 		totalirpf = 0,
 		currencySign = ["$","€","£"],
-		currentCurrency = currencySign[0],
-		transition = "fast";
+		currentCurrency = currencySign[1],
+		transition = 400;
 		
 	//Creates array
 	var items = {};
@@ -584,10 +584,10 @@ var reverse;
 	   //select
 
    		lang = $("#language").val() + ".xml";
-   		changeCurrency();
+   		
    		
    		$("#invoice").fadeOut( transition, function() {
-
+   				changeCurrency();
 				changeLanguage(lang);
 				
 				
@@ -619,7 +619,17 @@ var reverse;
 			
 			
    }
-   
+
+   $("#invoice").mouseenter( function() {
+   	$('input[type="text"]').css("border-color","#e6e6e6");
+   	$('#pay textarea').slideDown("fast");
+   }).mouseleave( function() {
+   	$('input[type="text"]').css("border-color","#fff");
+   	if($("#pay textarea").val() == ""){
+   	$('#pay textarea').slideUp("fast");
+   	}
+   });
+
    loadLocalStorage();
    resetForm();
    displayInvoices();

@@ -1,0 +1,198 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"te",
+				"text-transform"
+			],
+			[
+				"text",
+				"textarea"
+			],
+			[
+				"total",
+				"total_hidden"
+			],
+			[
+				"curren",
+				"currentCurrency"
+			],
+			[
+				"invoice_",
+				"invoice_total"
+			],
+			[
+				"curre",
+				"currentCurrency"
+			],
+			[
+				"change",
+				"changeCurrency"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 267.0,
+		"selected_items":
+		[
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/private/var/folders/8_/ptt_r77n40vdnf20n40xz2fc0000gn/T/fz3temp-1/.htaccess 2",
+		"/Users/brunofelicio/Sites/acudame/wp-content/themes/acudame/js/theme.js",
+		"/Users/brunofelicio/Sites/acudame/wp-content/themes/acudame/css/style.css",
+		"/Users/brunofelicio/Sites/acudame/wp-content/themes/acudame/single-tienda.php",
+		"/private/var/folders/8_/ptt_r77n40vdnf20n40xz2fc0000gn/T/fz3temp-1/.htaccess",
+		"/Users/brunofelicio/Sites/acudame/wp-content/themes/acudame/single-adopcion.php",
+		"/Users/brunofelicio/Sites/acudame/wp-content/themes/acudame/functions.php",
+		"/Users/brunofelicio/Sites/acudame/wp-content/themes/acudame/php.ini",
+		"/Users/brunofelicio/Sites/tests/jstest2.html",
+		"/private/var/folders/8_/ptt_r77n40vdnf20n40xz2fc0000gn/T/fz3temp-1/footer.php",
+		"/private/var/folders/8_/ptt_r77n40vdnf20n40xz2fc0000gn/T/fz3temp-1/dompdf_config.custom.inc.php",
+		"/Users/brunofelicio/Dropbox/Work/Sites/brunofelicio-v2/css/style.css",
+		"/Users/brunofelicio/Desktop/wp-config.php",
+		"/Applications/MAMP/conf/apache/httpd.conf"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".main input",
+			"input[type=\"text\"]",
+			"input[type=\"text\"],",
+			"invoice_total",
+			"currentCurrency",
+			"invoice_total",
+			"currency",
+			"currencySign",
+			"currentCurrency",
+			"child",
+			"last-child",
+			"rewrite"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/brunofelicio/Desktop/wp-config.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 166.0,
+	"status_bar_visible": false
+}
