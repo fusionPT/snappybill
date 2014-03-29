@@ -620,7 +620,7 @@ var reverse;
 			
    }
 
-   $("#invoice").mouseenter( function() {
+   $("#pay").mouseenter( function() {
    	//$('input[type="text"]').css("border-color","#e6e6e6");
    	$('#pay textarea').slideDown("fast");
    }).mouseleave( function() {
