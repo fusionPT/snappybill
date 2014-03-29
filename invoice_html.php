@@ -54,6 +54,7 @@
 	
 	/* HTML Template */
 	$taxes = '';
+	
 	foreach($_POST['tax_names'] as $key => $taxname) {
 	
 	$taxes .= '<tr>
