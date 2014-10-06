@@ -43,15 +43,39 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "js/app.js",
+			"settings":
+			{
+				"buffer_size": 18024,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 9004,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "invoice_html.php",
+			"settings":
+			{
+				"buffer_size": 3909,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 267.0,
+		"height": 47.0,
 		"selected_items":
 		[
 		],
-		"width": 575.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -68,6 +92,7 @@
 	},
 	"file_history":
 	[
+		"/Users/brunofelicio/Sites/facturarapida/scss/style.scss",
 		"/private/var/folders/8_/ptt_r77n40vdnf20n40xz2fc0000gn/T/fz3temp-1/.htaccess 2",
 		"/Users/brunofelicio/Sites/acudame/wp-content/themes/acudame/js/theme.js",
 		"/Users/brunofelicio/Sites/acudame/wp-content/themes/acudame/css/style.css",
@@ -99,6 +124,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"input",
+			"transition",
 			".main input",
 			"input[type=\"text\"]",
 			"input[type=\"text\"],",
@@ -128,8 +155,90 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "js/app.js",
+					"settings":
+					{
+						"buffer_size": 18024,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1363,
+								1363
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 280.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.php",
+					"settings":
+					{
+						"buffer_size": 9004,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1811,
+								1811
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "invoice_html.php",
+					"settings":
+					{
+						"buffer_size": 3909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1339,
+								1339
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -193,6 +302,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 166.0,
+	"side_bar_width": 302.0,
 	"status_bar_visible": false
 }

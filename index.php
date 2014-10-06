@@ -5,8 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>Factura Rapida</title>
-  <meta name="description" content="facturas gratis, finanzas on-line, factura, pdf">
-  <meta name="author" content="Factura Rapida. Facturas online gratis">
+  <meta name="description" content="Facturación on-line gratis en Español, Inglés y Portugués">
+  <meta name="author" content="Facturación on-line gratis. Facturarapida.net">
+  <meta name="keywords" content="Invoices, free, billing, pdf, facturas, gratis, facturación, facturas en pdf, facturación en la nube">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
