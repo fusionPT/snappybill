@@ -6,7 +6,7 @@
 
   <title>SimpleBill</title>
   <meta name="description" content="Online Invoicing FREE. No Signup.">
-  <meta name="author" content="brunofelicio.com">
+  <meta name="author" content="simplebill.me">
   <meta name="keywords" content="Invoices, free, billing, pdf, facturas, gratis, facturación, facturas en pdf, facturación en la nube">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
