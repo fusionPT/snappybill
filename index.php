@@ -196,7 +196,7 @@
 			</ul>
 			
 			
-			<h2>Ultimas facturas</h2>
+			<h2>Saved Invoices</h2>
 			<div id="invoices">
 				
 			</div>
@@ -206,7 +206,7 @@
    		<div class="clearfix"></div>
    <footer>
 	<p class="left">info@simplebill.me</p>
-	<div class="fb-like" data-href="http://www.simplebill.me" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>	
+	
 	<a href="https://twitter.com/share" class="twitter-share-button" data-via="brunofelici" data-lang="es">Twittear</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 	
