@@ -13,7 +13,7 @@ $(document).ready(function(){
 		totalirpf = 0,
 		currencySign = ["$","€","£"],
 		currentCurrency = currencySign[1],
-		transition = 400;
+		transition = 0;
 		
 	//Creates array
 	var items = {};
@@ -296,7 +296,7 @@ var	total_taxes = 0;
 		if (!invoice.invoice_num) {
 			//alert('Tienes de indicar un numero de factura');
 			//Show alert inline
-		showAlert("Tienes de inserir un numero de factura");
+		showAlert("You have to add an invoice number");
 			
 			return false;
 		}
@@ -335,7 +335,7 @@ var	total_taxes = 0;
 	   }
 	   
 	   if (typeof(dataStorage.invoices['invoice'+invoice.invoice_num]) !== 'undefined') {
-		  if (!confirm('Quieres reemplazar la factura '+invoice.invoice_num+'?')) {
+		  if (!confirm('Want to replace invoice '+invoice.invoice_num+'?')) {
 				return;
 			}
 	   }
@@ -352,7 +352,7 @@ var	total_taxes = 0;
    			
    		
 		
-		if (!checkChanges() || confirm('No fue grabado, quieres continuar?')) {
+		if (!checkChanges() || confirm('Continue without saving?')) {
 			resetForm();
 	
 		} else {
@@ -361,7 +361,7 @@ var	total_taxes = 0;
 		}
 		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
 			//alert('No existe esa factura');
-			showAlert("No existe esa factura");
+			showAlert("There no such invoice");
 			return false;
 		}
 		var invoice = dataStorage.invoices['invoice'+invoice_num];
@@ -488,7 +488,7 @@ var reverse;
 		if(reverse.length >= 1 ){
 			$('#invoices').hide().html(invoiceshtml).fadeIn('fast');
 		} else {
-			$('#invoices').hide().html("<p class='blank'>No hay facturas! Crea una nueva ahora.</p>").fadeIn('fast');
+			$('#invoices').hide().html("<p class='blank'>There are no saved invoices. Create one now!</p>").fadeIn('fast');
 		}
    }
    
@@ -623,6 +623,7 @@ var reverse;
 
    loadLocalStorage();
    resetForm();
+   selectLang();
    displayInvoices();
    changeLanguage(lang);
    changeCurrency();

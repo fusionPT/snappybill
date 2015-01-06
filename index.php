@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Factura Rapida</title>
+  <title>SimpleBill</title>
   <meta name="description" content="Online Invoicing FREE. No Signup.">
   <meta name="author" content="brunofelicio.com">
   <meta name="keywords" content="Invoices, free, billing, pdf, facturas, gratis, facturación, facturas en pdf, facturación en la nube">
@@ -43,12 +43,12 @@
 	<div class="container">
 		<div class="top">
 			<hgroup>
-				<h1>Facturarapida.net</h1>
-				<h2>Facturación. Simples. Gratis.</h2>
+				<h1>SimpleBill</h1>
+				<h2>Simple. Free. Invoices.</h2>
 			</hgroup>
 			<select id="language">
-        <option value="espanol">Español - €</option>
 				<option value="english">English - $</option>
+        <option value="espanol">Español - €</option>
         <option value="englishUK">English - £</option>
 				<option value="portugues">Português - €</option>
 			</select>
@@ -205,8 +205,8 @@
    		</form>
    		<div class="clearfix"></div>
    <footer>
-	<p class="left">info@facturarapida.net</p>
-	<div class="fb-like" data-href="http://www.facturarapida.net" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>	
+	<p class="left">info@simplebill.me</p>
+	<div class="fb-like" data-href="http://www.simplebill.me" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>	
 	<a href="https://twitter.com/share" class="twitter-share-button" data-via="brunofelici" data-lang="es">Twittear</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 	
@@ -221,7 +221,7 @@
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <script src="js/app-ck.js"></script>
+  <script src="js/min/app-min.js"></script>
   
 
   

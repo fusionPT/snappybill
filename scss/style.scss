@@ -34,20 +34,17 @@ body {
 
 h1 {
 	
-	color: #444;
-	font-size: 27px;
+	color: #777;
+	font-size: 22px;
 	font-weight: 200;
-	margin-bottom: 10px;
-	background: url(../images/logo.png) no-repeat;
-	width: 131px;
-	height: 20px;
-	text-indent: -9999px;
+	margin-top: 10px;
 	float: left;
 }
 
 h2 {
 	font-weight: 400;
 	color: #cfcfcf;
+	margin-top: 8px;
 	
 }
 
@@ -366,7 +363,7 @@ textarea {
 	
 	width: 80%;
 	overflow: hidden;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	margin-top: 20px;
 	hgroup {
 		float: left;
