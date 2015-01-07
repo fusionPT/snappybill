@@ -44,7 +44,7 @@
 		<div class="top">
 			<hgroup>
 				<h1>SimpleBill</h1>
-				<h2>Simple. Free. Invoices.</h2>
+				<h2>Billing. Simple. Free.</h2>
 			</hgroup>
 			<select id="language">
 				<option value="english">English - $</option>
@@ -60,10 +60,10 @@
   <div id="main" role="main">
     <header>
 		
-		<input class="title" type="text" name="invoice-title" placeholder="Factura" value="Factura" id='invoice-title'/>
+		<input class="title" type="text" name="invoice-title" placeholder="Factura" value="Invoice" id='invoice-title'/>
 		
 		<fieldset id="invoice-num">
-			<input type="text" name="invoice-number" placeholder="Numero de factura" id="inv"/><br />
+			<input type="text" name="invoice-number" placeholder="Invoice number" id="inv"/><br />
 			<input type="text" name="date" placeholder="<?php echo date('d/m/Y');?>" value="<?php echo date('d/m/Y');?>" id='invoice-date'/><br />
             <input type="hidden" name="hidden-number" value="Invoice nº">
             <input type="hidden" name="hidden-date" value="Date">
@@ -74,7 +74,7 @@
     	<div id="adress">
     	
     		<fieldset id="from">
-    		<h3>Factura de:</h3>
+    		<h3>From:</h3>
     			<input type="hidden" name="hidden-from" value=0>
 				<input type="text" id="name" name="name" placeholder="Nombre, dirección, NIF..."/><br />
 				<input type="text" id="email" name="email" placeholder=""/><br />
@@ -83,7 +83,7 @@
 			</fieldset>
 		
 			<fieldset id="billto">
-			<h3>Facturar a:</h3>
+			<h3>To:</h3>
 				<input type="hidden" name="hidden-to" value=0>
 				<input type="text" id='cname' name="cname" placeholder="Nombre, dirección, NIF..."/><br />
 				<input type="text" id='cemail' name="cemail" placeholder=""/><br />

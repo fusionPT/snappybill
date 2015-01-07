@@ -13,11 +13,12 @@ $(document).ready(function(){
 		totalirpf = 0,
 		currencySign = ["$","€","£"],
 		currentCurrency = currencySign[1],
-		transition = 0;
+		transition = 100;
 		
 	//Creates array
 	var items = {};
-	
+	//Hide at begining
+	$("#invoice").hide();
 	//Cuando clica en descargar
 	$( "#descargar" ).click(function() {
 		row_html = $("#invoice-table tbody").html();
@@ -57,6 +58,7 @@ $(document).ready(function(){
 		$("#invoice").fadeOut( transition, function() {
 			resetForm();
 			setInvoiceNum(getLastInvoiceNum()+1);
+			changeLanguage(lang);
 		}).fadeIn(transition);
 		} 
 		return false;
@@ -440,11 +442,11 @@ var	total_taxes = 0;
     function deleteInvoice(invoice_num) {
 		if (typeof(dataStorage.invoices['invoice'+invoice_num]) === 'undefined') {
 			//alert('No existe esa factura');
-			showAlert("No existe esa factura");
+			showAlert("That invoice doesn't exist.");
 			
 			return false;
 		}
-		if (confirm('Quieres borrar la factura '+invoice_num+"?")) {
+		if (confirm('Do you want to delete '+invoice_num+"?")) {
 			delete dataStorage.invoices['invoice'+invoice_num];
 			saveLocalStorage();
 			displayInvoices();
@@ -582,7 +584,7 @@ var reverse;
 				changeLanguage(lang);
 				
 				
-   		}).fadeIn(transition);
+   		}).delay(500).fadeIn(transition);
 		
 
    }
@@ -621,9 +623,9 @@ var reverse;
    	}
    });
 
+   selectLang();
    loadLocalStorage();
    resetForm();
-   selectLang();
    displayInvoices();
    changeLanguage(lang);
    changeCurrency();

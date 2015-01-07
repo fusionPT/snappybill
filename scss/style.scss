@@ -204,7 +204,7 @@ a.add_tax {
 #main {
 	
 	padding: 40px;
-	//overflow: hidden;
+	overflow: hidden;
 }
 
 header {
@@ -424,7 +424,9 @@ select {
 	}
 }
 
-
+#invoice {
+	display: none;
+}
 
 #invoices li {
 	margin-bottom:20px;
