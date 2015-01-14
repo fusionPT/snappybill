@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"d",
+				"display"
+			],
+			[
 				"border-c",
 				"border-color"
 			],
@@ -47,7 +51,7 @@
 			"file": "js/app.js",
 			"settings":
 			{
-				"buffer_size": 18024,
+				"buffer_size": 18105,
 				"line_ending": "Unix"
 			}
 		},
@@ -55,7 +59,7 @@
 			"file": "index.php",
 			"settings":
 			{
-				"buffer_size": 9004,
+				"buffer_size": 8754,
 				"line_ending": "Unix"
 			}
 		},
@@ -64,6 +68,14 @@
 			"settings":
 			{
 				"buffer_size": 3909,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scss/style.scss",
+			"settings":
+			{
+				"buffer_size": 8497,
 				"line_ending": "Unix"
 			}
 		}
@@ -124,6 +136,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"resetForm",
+			"setInvoiceNum",
+			"#invoice",
+			"top",
+			"changeLanguage",
+			"lang",
 			"input",
 			"transition",
 			".main input",
@@ -155,7 +173,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -163,15 +181,15 @@
 					"file": "js/app.js",
 					"settings":
 					{
-						"buffer_size": 18024,
+						"buffer_size": 18105,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1363,
-								1363
+								1671,
+								1671
 							]
 						],
 						"settings":
@@ -180,7 +198,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 280.0,
+						"translation.y": 485.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -190,15 +208,15 @@
 					"file": "index.php",
 					"settings":
 					{
-						"buffer_size": 9004,
+						"buffer_size": 8754,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1811,
-								1811
+								1744,
+								1744
 							]
 						],
 						"settings":
@@ -208,7 +226,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 680.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -235,6 +253,33 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "scss/style.scss",
+					"settings":
+					{
+						"buffer_size": 8497,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5780,
+								5780
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6704.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
