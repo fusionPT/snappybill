@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>SimpleBill</title>
+  <title>SimpleBill. Free Invoice Generator.</title>
   <meta name="description" content="Online Invoicing FREE. No Signup.">
   <meta name="author" content="simplebill.me">
   <meta name="keywords" content="Invoices, free, billing, pdf, facturas, gratis, facturación, facturas en pdf, facturación en la nube">
