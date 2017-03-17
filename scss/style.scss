@@ -32,22 +32,24 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-
-
 h1 {
-	
+
 	color: #777;
 	font-size: 22px;
-	font-weight: 200;
+	font-weight: 600;
 	margin-top: 10px;
 	float: left;
+  text-indent: -9000px;
+  width: 160px;
+  height: 36px;
+  background: url(../images/snappybill-logo.svg) no-repeat;
 }
 
 h2 {
 	font-weight: 400;
-	color: #cfcfcf;
-	margin-top: 8px;
-	
+	color: #a7a7a7;
+	margin-top: 18px;
+
 }
 
 h3 {
@@ -57,12 +59,11 @@ h3 {
 	color: #171a1c;
 }
 
-
 a {
 	text-decoration: none;
 	 &:hover {
 		text-decoration: underline;
-		
+
 	 }
 }
 .noborder {
@@ -73,13 +74,13 @@ a {
 
 table {
 	position: relative;
-	
+
 	width: 100%;
 	thead {
-		
+
 		border-bottom: 1px solid #959595;
 		th {
-			
+
 			text-align: right;
 			width: 13%;
 			font-weight: 600;
@@ -89,28 +90,28 @@ table {
 				border-right: none;;
 			}
 			&.description {
-				width: 60%;	
+				width: 60%;
 				text-align: left;
 			}
-			
+
 			padding-bottom: 18px;
-			
+
 		}
-		
+
 	}
 	td {
-	
+
 		text-align: right;
 		padding-top: 16px;
 		padding-bottom: 12px;
 		padding-right: 20px;
 		vertical-align:middle;
-		
+
 		&.add {
 			float: left;
 		}
 		span {
-			
+
 			display: inline-block;
 			padding-bottom: 12px;
 		}
@@ -133,7 +134,7 @@ table {
 			content: attr(value);
 		}
 		width: 80%;
-		
+
 	}
 }
 
@@ -156,7 +157,7 @@ table {
 	width: 95%;/*1000px*/
 	max-width: 1000px;
 	margin: 0 auto;
-		
+
 }
 
 .left {
@@ -165,7 +166,7 @@ table {
 
 .right {
 	float: right;
-	
+
 }
 
 
@@ -177,7 +178,7 @@ a.add-row, a.add_tax {
 	text-align: left;
 	float: left;
 	line-height: 10px;
-	
+
 	&:hover {
 		color: $link_color;
 		text-decoration: none;
@@ -198,20 +199,21 @@ a.add_tax {
 	float: left;
 	//overflow: hidden;
 	background-color: #fff;
-	-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.4);
-	-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.4);
-	box-shadow: 0px 1px 4px rgba(0,0,0,.4);
+	-webkit-box-shadow: 0 4px 12px 0 rgba(0,0,0,0.20);
+	-moz-box-shadow: 0 4px 12px 0 rgba(0,0,0,0.20);
+	box-shadow: 0 4px 12px 0 rgba(0,0,0,0.20);
+
 }
 
 #main {
-	
+
 	padding: 40px;
 	overflow: hidden;
 }
 
 header {
 	overflow: hidden;
-	
+
 	img {
 		float: left;
 	}
@@ -228,7 +230,7 @@ header fieldset {
 
 fieldset#invoice-num {
 	text-align: right;
-	
+
 	input {
 		text-align: right;
 		width: 100%;
@@ -250,21 +252,21 @@ fieldset#invoice-num {
 
 
 #adress {
-	
+
 	overflow: hidden;
 	margin: 50px 0 100px;
 }
 
 fieldset {
-	
+
 	input {
 		font-family: 'Open Sans', sans-serif;
 		width: 100%;
-		
+
 	}
-	
+
 	&#from {
-		
+
 		width: 46%;
 		float: left;
 		margin-right: 5%;
@@ -272,7 +274,7 @@ fieldset {
 	&#billto {
 		width: 46%;
 		float: right;
-		
+
 	}
 }
 
@@ -282,7 +284,7 @@ input[type="text"] {
 	font-family: $font;
 	font-size: 14px;
 	color: #666;
-	
+
 	padding: 12px 0 12px;
 	appearance: none;
 	-webkit-appearance: none;
@@ -309,7 +311,7 @@ textarea {
 	font-family: "Open Sans", "Helvetica Neue", sans-serif;
 	font-size: 14px;
 	border-bottom: 1px solid #ccc;
-}	
+}
 #pay {
 	padding-bottom: 10px;
 }
@@ -336,7 +338,7 @@ textarea {
 
 
 .delete-tax {
-	
+
 	height: 12px;
 	width: 12px;
 	color: #414141;
@@ -354,7 +356,7 @@ textarea {
 }
 
 .insert {
-	
+
 	position: absolute;
 	left: -26px;
 	margin-top: 3px;
@@ -362,7 +364,7 @@ textarea {
 /* MENU */
 
 .top {
-	
+
 	width: 80%;
 	overflow: hidden;
 	margin-bottom: 20px;
@@ -377,11 +379,11 @@ textarea {
 			padding-left: 10px;
 		}
 	}
-	
+
 }
 
 ul.menu {
-	
+
 	li {
 		display: inline-block;
 	}
@@ -407,17 +409,17 @@ select {
 	margin-right: 0;
 	text-align: left;
 }
- 
+
 /* SIDEBAR */
 
 .sidebar {
 	float: left;
 	margin: 0 0 0 2%;
 	width: 16%;
-	
-	
+
+
 	padding: 0;
-	
+
 	h2 {
 		float: none;
 		text-transform: uppercase;
@@ -434,9 +436,9 @@ select {
 	margin-bottom:20px;
 	margin-left: 15px;
 	position:relative;
-	
-	
-	
+
+
+
 }
 .inv_title {
 	font-size: 1em;
@@ -444,9 +446,9 @@ select {
 	cursor:pointer;
 	color: $link_color;
 	&:hover {
-		
+
 		border-bottom: 1px dashed $link_color;
-	
+
 	}
 }
 .inv_date {
@@ -454,7 +456,7 @@ select {
 	color: #b4b4b4;
 	display: inline-block;
 	padding-top: 5px;
-	
+
 }
 
 .inv_total {
@@ -466,7 +468,7 @@ select {
 	padding: 4px 5px;
 	@include border-radius(3px);
 	margin-left: 4px;
-	
+
 }
 
 .inv_delete {
@@ -480,7 +482,7 @@ select {
 	color: #b4b4b4;
 	font-size: 1em;
 	line-height: 1.5em;
-	
+
 }
 
 
@@ -513,7 +515,7 @@ input[type="submit"], input[type="button"] {
 
 #create_new {
 	background: #cfcfcf url(../images/plus-icon.png) no-repeat 16px center;
-	
+
 	&:hover {
 		cursor: pointer;
 		background-color: #49b556;
@@ -524,7 +526,7 @@ input[type="submit"], input[type="button"] {
 
 #descargar {
 	background: #cfcfcf url(../images/download-icon.png) no-repeat 16px center;
-	
+
 	&:hover {
 		cursor: pointer;
 		background-color: #3274c0;
@@ -533,7 +535,7 @@ input[type="submit"], input[type="button"] {
 }
 #guardar {
 	background: #cfcfcf url(../images/save-icon.png) no-repeat 16px center;
-	
+
 	&:hover {
 		cursor: pointer;
 		background-color: #3274c0;
@@ -544,7 +546,7 @@ input[type="submit"], input[type="button"] {
 
 //FOOTER
 .fb-like {
-	float: right;	
+	float: right;
 }
 .twitter-share-button {
 	float: right;
@@ -555,9 +557,9 @@ input[type="submit"], input[type="button"] {
 footer {
 	padding: 40px 0 40px;
 	width: 80%;
-	
+
 	p {
-		color: #cbcbcb;
+		color: #a7a7a7;
 	}
 }
 
@@ -579,7 +581,7 @@ footer {
 		font-family: "Open Sans", sans-serif;
 		color: #fff;
 		display: inline-block;
-		
+
 	}
 	a {
 		display: inline-block;
@@ -591,7 +593,7 @@ footer {
 		height: 12px;
 		width: 12px;
 		text-indent: -9999px;
-		
+
 		&:hover {
 			opacity: .5;
 		}
@@ -615,18 +617,18 @@ footer {
 		float: none;
 	}
 	fieldset {
-	
-		
+
+
 		&#from {
-			
+
 			width: 100%;
 			float: none;
-			
+
 		}
 		&#billto {
 			width: 100%;
 			float: none;
-			
+
 		}
 	}
 

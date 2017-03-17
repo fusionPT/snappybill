@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>SimpleBill. Free Invoice Generator.</title>
+  <title>SnappyBill. Free Invoice Generator.</title>
   <meta name="description" content="Online Invoicing FREE. No Signup.">
-  <meta name="author" content="simplebill.me">
+  <meta name="author" content="snappybill.me">
   <meta name="keywords" content="Invoices, free, billing, pdf, facturas, gratis, facturación, facturas en pdf, facturación en la nube">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
@@ -37,7 +37,7 @@
 	<div class="container">
 		<div class="top">
 			<hgroup>
-				<h1>SimpleBill</h1>
+				<h1>Snappybill</h1>
 				<h2>Billing. Simple. Free.</h2>
 			</hgroup>
 			<select id="language">
@@ -48,14 +48,14 @@
 			</select>
 
 		</div>
-		
+
   <div id="page-container">
   <form id="invoice" method="POST" action="invoice_html.php"><!-- Invoice form -->
   <div id="main" role="main">
     <header>
-		
+
 		<input class="title" type="text" name="invoice-title" placeholder="Factura" value="Invoice" id='invoice-title'/>
-		
+
 		<fieldset id="invoice-num">
 			<input type="text" name="invoice-number" placeholder="Invoice number" id="inv"/><br />
 			<input type="text" name="date" placeholder="<?php echo date('d/m/Y');?>" value="<?php echo date('d/m/Y');?>" id='invoice-date'/><br />
@@ -63,37 +63,37 @@
             <input type="hidden" name="hidden-date" value="Date">
 		</fieldset>
     </header>
-    
-    	
+
+
     	<div id="adress">
-    	
+
     		<fieldset id="from">
     		<h3>From:</h3>
     			<input type="hidden" name="hidden-from" value=0>
 				<input type="text" id="name" name="name" placeholder="Nombre, dirección, NIF..."/><br />
 				<input type="text" id="email" name="email" placeholder=""/><br />
 				<input type="text" id="tel" name="tel" placeholder=""/><br />
-				
+
 			</fieldset>
-		
+
 			<fieldset id="billto">
 			<h3>To:</h3>
 				<input type="hidden" name="hidden-to" value=0>
 				<input type="text" id='cname' name="cname" placeholder="Nombre, dirección, NIF..."/><br />
 				<input type="text" id='cemail' name="cemail" placeholder=""/><br />
 				<input type="text" id='ctel' name="ctel" placeholder=""/><br />
-				
+
 			</fieldset>
-		
-   		</div>	
-   		
+
+   		</div>
+
    		<div id="details">
-   			
+
    				<table id="invoice-table">
-   					
+
    					<thead>
    						<tr>
-   							
+
    							<th class="description">Description</th>
    							<th class="qty">Qty.</th>
    							<th class="cost">Cost</th>
@@ -105,33 +105,33 @@
    						</tr>
    					</thead>
    					<tbody>
-   						
+
    						<tr class="row">
-   							
+
    							<td class="article">
-   							
+
    								<input class="description" type="text" name="description-value" size="40" placeholder="ej. Página web" value=""/>
 	   							<input class="hidden-description" type="hidden" value=""/>
    							</td>
    							<td><input class="cantidad" type="text" name="cost" placeholder="Cant." size="2" value="0"/></td>
    							<td><input class="coste" type="text" name="qty" placeholder="Coste" size="2" value="0"/></td>
-   							<td class="value"><span class="precio">0</span><input class="precio-hidden" type="hidden" name="price" value="0"/></td>  
-   							<td class="insert"><a class="delete-row" href="#">Delete Row</a></td>		
-   										
+   							<td class="value"><span class="precio">0</span><input class="precio-hidden" type="hidden" name="price" value="0"/></td>
+   							<td class="insert"><a class="delete-row" href="#">Delete Row</a></td>
+
    						</tr>
-   						
-	   						
-   						
+
+
+
    					</tbody>
    					<tfoot>
-   						
+
    						<tr >
    							<td class="add"><a href="#" class="add-row">+ add row</a></td>
    							<td colspan="2" class="bold">Subtotal</td>
    							<td class="subtotal">0</td>
    							<input class="subtotal-hidden" type="hidden" name="subtotal" value="0">
    						</tr>
-						
+
    					<!--	<tr>
    						  <td class="noborder">&nbsp;</td>
    						  <td class="tax"></td>
@@ -146,16 +146,16 @@
    							<td class="totalirpf">0</td>
    							<input class="totalirpf-hidden" type="hidden" name="totalirpf" value="0">
    						</tr>-->
-						
+
 						<tr class='add_tax_tr'>
    						  <td class="noborder">&nbsp;</td>
    						  <td class="tax"></td>
    						  <td><a href='#' class="add_tax">+ add tax</a></td>
    							<td class=""></td>
-   				
+
    						</tr>
-						
-						
+
+
    						<tr>
    						  <td class="noborder">&nbsp;</td>
    						  <td colspan="2" class="noborder"><strong>TOTAL</strong></td>
@@ -166,9 +166,9 @@
    					</tfoot>
    				</table>
 
-   		
+
    		</div>
-   		
+
    		<div id="pay">
    			<h3>Notes</h3>
    			<textarea name="notas" id='invoice-notas'></textarea>
@@ -176,37 +176,37 @@
    		</div>
 
     	</div><!--! end of #main -->
- 
+
     </div> <!--! end of #page-container -->
-	
+
     <div class="sidebar">
-	
+
 			<ul class="menu">
-				
+
 				<li><input type="button"  id="create_new" value="New"/></li>
 				<li><input type="submit" name="submit" id="descargar" value="Download"/></li>
 				<li><input type="button" name="guardar" id="guardar" value="Save"/></li>
-				
+
 			</ul>
-			
+
 			<h2>Saved Invoices</h2>
 			<div id="invoices">
-				
+
 			</div>
     	</div><!-- End of sidebar -->
 
    		</form>
    		<div class="clearfix"></div>
    <footer>
-	<p class="left">info@simplebill.me</p>
-	
+	<p class="left">info@snappybill.com</p>
+
 	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="es">Twittear</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-	
+
   </footer>
-  
+
   </div> <!--! end of #container -->
-  
+
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
@@ -224,7 +224,7 @@
 
   </script>
 
-  
+
   <!-- end scripts-->
 
 
