@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>SnappyBill. Free Invoice Generator.</title>
-  <meta name="description" content="Online Invoice for FREE!">
+  <meta name="description" content="Create, Edit and Save your Invoices for FREE.">
   <meta name="author" content="snappybill.me">
   <meta name="keywords" content="Invoices, free, billing, pdf, facturas, gratis, facturación, facturas en pdf, facturación en la nube">
 
