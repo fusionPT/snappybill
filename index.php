@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>SnappyBill. Free Invoice Generator.</title>
-  <meta name="description" content="Online Invoicing FREE. No Signup.">
+  <meta name="description" content="Online Invoice for FREE!">
   <meta name="author" content="snappybill.me">
   <meta name="keywords" content="Invoices, free, billing, pdf, facturas, gratis, facturación, facturas en pdf, facturación en la nube">
 
@@ -15,7 +15,6 @@
   <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
 
   <!-- CSS: implied media="all" -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
