@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Create Invoices for FREE!</title>
+  <title>Create, edit and save without signing up! For Free!</title>
   <meta name="description" content="Create, Edit and Save your Invoices for FREE.">
   <meta name="author" content="snappybill.me">
   <meta name="keywords" content="Invoices, free, billing, pdf, facturas, gratis, facturación, facturas en pdf, facturación en la nube">
