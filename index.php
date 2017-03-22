@@ -53,9 +53,8 @@ window['_fs_namespace'] = 'FS';
 	<div class="container">
 		<div class="top">
 			<hgroup>
-				<h1>Snappybill.com</h1>
+				<h1>Snappybill</h1>
 				<h2>Create and Download your invoices for FREE!</h2>
-        <h3>by brunofelicio.com</h3>
 			</hgroup>
 			<select id="language">
 				<option value="english">English - $</option>

@@ -2,7 +2,7 @@
 
 <language>
 	<info>
-		<tag>Billing. Simple. Free.</tag>
+		<tag>Create and Download Your Invoices for FREE!</tag>
 		<invoice-title>Invoice</invoice-title>
 		<number>Invoice Number</number>
 		<date>Date</date>
@@ -32,5 +32,3 @@
 		<last>Last invoices</last>
 	</sidebar>
 </language>
-
-	
