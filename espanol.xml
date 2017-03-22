@@ -2,7 +2,7 @@
 
 <language>
 	<info>
-		<tag>Facturación. Simple. Gratis.</tag>
+		<tag>Crea y descarga tus facturas gratis.</tag>
 		<invoice-title>Factura</invoice-title>
 		<number>Numero de factura</number>
 		<date>Fecha</date>
@@ -32,5 +32,3 @@
 		<last>Ultimas facturas</last>
 	</sidebar>
 </language>
-
-	
