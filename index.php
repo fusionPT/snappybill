@@ -55,6 +55,7 @@ window['_fs_namespace'] = 'FS';
 			<hgroup>
 				<h1>Snappybill</h1>
 				<h2>Create and Download your invoices for FREE!</h2>
+        <h3>by brunofelicio.com</h3>
 			</hgroup>
 			<select id="language">
 				<option value="english">English - $</option>
